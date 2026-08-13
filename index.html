@@ -17,19 +17,16 @@
   --deep-ink:#123c31;
   --warn:#8a5a1f;
   --warn-bg:#fdf6ea;
-  --ok:#1c5c4b;
   --radius:14px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo",system-ui,Arial,sans-serif;font-size:16px;line-height:1.55;-webkit-text-size-adjust:100%}
-button,input,textarea,select{font:inherit;color:inherit}
+button,input,textarea{font:inherit;color:inherit}
 button{cursor:pointer}
 button:disabled{cursor:not-allowed}
 :focus-visible{outline:2px solid var(--deep);outline-offset:2px}
-.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
-/* header */
 .top{min-height:72px;padding:10px 4vw;display:flex;align-items:center;justify-content:space-between;gap:14px;background:#fffffff2;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;backdrop-filter:blur(12px)}
 .brand{display:flex;align-items:center;gap:12px;min-width:0}
 .mark{width:40px;height:40px;border:1px solid #a9b8b0;border-radius:50%;display:grid;place-content:center;gap:3px;flex:none}
@@ -42,7 +39,6 @@ button:disabled{cursor:not-allowed}
 .actions button:hover{border-color:#a8c6b9}
 .actions svg{width:16px;height:16px;flex:none}
 
-/* hero */
 .hero{padding:64px 6vw 50px;background:radial-gradient(circle at 82% 18%,#9ff3cf59,transparent 26%),linear-gradient(116deg,#12211d 0 55%,#20372f);color:#fff;display:flex;align-items:flex-end;justify-content:space-between;gap:36px;flex-wrap:wrap}
 .hero .copy{max-width:760px;min-width:280px}
 .eyebrow{font-size:12px;letter-spacing:.2em;color:var(--mint);font-weight:800}
@@ -57,20 +53,17 @@ button:disabled{cursor:not-allowed}
 .track i{height:100%;display:block;background:var(--mint);width:0;transition:width .35s ease}
 .progress small{font-size:12px;color:#bcc9c3}
 
-/* steps */
 .steps{display:grid;grid-template-columns:repeat(6,1fr);background:#fff;padding:0 4vw;border-bottom:1px solid var(--line);position:relative;z-index:5}
 .steps button{min-height:84px;border:0;border-right:1px solid var(--line-soft);background:#fff;display:flex;gap:11px;align-items:center;text-align:left;padding:12px;position:relative;color:var(--ink)}
 .steps button:disabled{opacity:.4}
 .steps button.active{background:#f2fdf7}
 .steps button.active:after{content:"";position:absolute;bottom:0;left:14%;right:14%;height:3px;background:var(--deep)}
 .num{width:30px;height:30px;border:1px solid #c3d0ca;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:800;flex:none}
-.steps .active .num{background:var(--mint);border-color:var(--mint)}
-.steps .done .num{background:var(--mint);border-color:var(--mint)}
+.steps .active .num,.steps .done .num{background:var(--mint);border-color:var(--mint)}
 .steps .stale .num{background:#ffe9c4;border-color:#e6c68a}
 .steps strong{display:block;font-size:13px}
 .steps small{display:block;font-size:12px;color:var(--muted);margin-top:2px}
 
-/* layout */
 .shell{width:min(1500px,94vw);margin:34px auto 70px;display:grid;grid-template-columns:340px minmax(0,1fr);gap:26px;align-items:start}
 .panel,.result,.final{background:#fff;border:1px solid var(--line);border-radius:17px;box-shadow:0 14px 36px #14251f0d}
 .panel{padding:24px;position:sticky;top:94px}
@@ -84,9 +77,8 @@ button:disabled{cursor:not-allowed}
 .field input{height:44px;padding:0 11px}
 .field textarea{min-height:88px;padding:11px;resize:vertical;line-height:1.5}
 .field input:focus,.field textarea:focus{border-color:#3f7d69;box-shadow:0 0 0 3px #3f7d6926}
-.apiBtns{display:grid;grid-template-columns:1fr 1fr 44px;gap:6px;margin-top:7px}
-.apiBtns button{height:36px;border:1px solid #c6d1cc;border-radius:7px;background:#fff;font-size:12px;font-weight:700;color:var(--body)}
-.apiBtns button.primary{background:var(--deep-ink);color:#fff;border-color:var(--deep-ink)}
+.apiBtns{display:grid;grid-template-columns:1fr;gap:6px;margin-top:7px}
+.apiBtns button{height:38px;border:1px solid var(--deep-ink);border-radius:7px;background:var(--deep-ink);color:#fff;font-size:13px;font-weight:700}
 .note{font-size:12px;color:var(--muted);line-height:1.6;margin:9px 1px 0}
 .note b{color:var(--body)}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
@@ -99,7 +91,6 @@ button:disabled{cursor:not-allowed}
 .status.warn{background:var(--warn-bg);border-left-color:#dcae63;color:var(--warn)}
 .status.ok{background:#f0faf5;border-left-color:var(--deep);color:var(--deep)}
 
-/* result */
 .result{padding:28px;min-height:600px}
 .resultHead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;padding-bottom:18px;border-bottom:1px solid var(--line);flex-wrap:wrap}
 .resultHead .kicker{font-size:12px;letter-spacing:.15em;color:var(--muted);font-weight:800;margin:0 0 6px}
@@ -109,7 +100,6 @@ button:disabled{cursor:not-allowed}
 .headBtn:hover{border-color:#a8c6b9}
 .banner{margin-top:18px;padding:12px 14px;border-radius:10px;font-size:13px;line-height:1.6;display:flex;gap:10px;align-items:flex-start}
 .banner.warn{background:var(--warn-bg);border:1px solid #ecd9b4;color:var(--warn)}
-.banner.info{background:#f2f7f4;border:1px solid var(--line);color:var(--body)}
 .banner b{font-weight:800}
 
 .empty{min-height:460px;display:grid;place-content:center;text-align:center;color:var(--body);padding:20px}
@@ -117,21 +107,21 @@ button:disabled{cursor:not-allowed}
 .empty b{display:block;margin-top:26px;font-size:16px}
 .empty small{display:block;color:var(--muted);line-height:1.7;margin-top:8px;font-size:13px}
 
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
-.card{border:1px solid var(--line);border-radius:12px;background:#fff;padding:0;overflow:hidden;text-align:left;display:flex;flex-direction:column;transition:border-color .15s,transform .15s}
-.card:hover{border-color:#8fbfa9;transform:translateY(-1px)}
-.card.selected{border:2px solid var(--deep);background:#f5fdf9}
-.card .fig{aspect-ratio:4/3;background:#eef2ef;display:grid;place-items:center;overflow:hidden;position:relative}
-.card .fig img{width:100%;height:100%;object-fit:cover;display:block}
-.card .fig .ph{font-size:12px;color:var(--muted);text-align:center;padding:12px;line-height:1.6}
-.card .body{padding:14px;display:flex;flex-direction:column;gap:6px;flex:1}
-.card .top-row{display:flex;align-items:center;gap:8px}
-.onum{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:#eef2ef;font-size:12px;font-weight:800;flex:none}
-.card.selected .onum{background:var(--mint)}
-.card strong{font-size:15px;font-weight:700;line-height:1.35}
-.card .desc{display:block;color:var(--body);font-size:13px;line-height:1.6}
-.card .cues{color:var(--deep);font-size:12px;font-weight:700;letter-spacing:.01em}
-.retry{align-self:flex-start;margin-top:2px;border:1px solid var(--line);background:#fff;border-radius:7px;padding:6px 10px;font-size:12px;font-weight:700;color:var(--body)}
+.board{margin-top:20px;aspect-ratio:16/9;border:1px solid var(--line);border-radius:12px;background:#eef2ef;overflow:hidden;display:grid;place-items:center}
+.board img{width:100%;height:100%;object-fit:contain;background:#fff;display:block}
+.board .ph{text-align:center;color:var(--muted);font-size:13px;line-height:1.7;padding:20px}
+.retry{margin-top:10px;border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 13px;font-size:13px;font-weight:700;color:var(--body)}
+
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.opt{min-height:112px;border:1px solid var(--line);border-radius:11px;background:#fff;padding:14px;display:grid;grid-template-columns:28px 1fr;gap:10px;text-align:left;align-items:start;transition:border-color .15s,transform .15s}
+.opt:hover{border-color:#8fbfa9;transform:translateY(-1px)}
+.opt.selected{border:2px solid var(--deep);background:#f5fdf9;padding:13px}
+.onum{width:27px;height:27px;border-radius:50%;display:grid;place-items:center;background:#eef2ef;font-size:12px;font-weight:800}
+.opt.selected .onum{background:var(--mint)}
+.opt strong{display:block;font-size:15px;line-height:1.35}
+.opt .desc{display:block;color:var(--body);font-size:13px;line-height:1.6;margin-top:5px}
+.opt .cues{display:block;color:var(--deep);font-size:12px;font-weight:700;margin-top:7px}
+
 .spinner{display:inline-block;width:16px;height:16px;border:2px solid #1c4b3d38;border-top-color:#1c4b3d;border-radius:50%;animation:spin .8s linear infinite;vertical-align:-3px;margin-right:7px}
 @keyframes spin{to{transform:rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important}html{scroll-behavior:auto}}
@@ -142,13 +132,12 @@ button:disabled{cursor:not-allowed}
 .next{border:1px solid #14251f;background:#14251f;color:#fff}
 .next:disabled{opacity:.4}
 
-/* final */
 .final{margin-top:26px;padding:28px}
 .final h2{font-size:22px;margin:0 0 4px;font-weight:600}
 .final .sub{color:var(--muted);font-size:13px;margin:0 0 20px}
 .summary{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .sum{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
-.sum .fig{aspect-ratio:4/3;background:#eef2ef;overflow:hidden}
+.sum .fig{aspect-ratio:16/9;background:#eef2ef;overflow:hidden}
 .sum .fig img{width:100%;height:100%;object-fit:cover;display:block}
 .sum .body{padding:13px}
 .sum .step{font-size:12px;letter-spacing:.12em;color:var(--muted);font-weight:800}
@@ -164,7 +153,7 @@ footer{border-top:1px solid var(--line);padding:22px 4vw;display:flex;justify-co
 @media(max-width:1100px){
   .steps{grid-template-columns:repeat(3,1fr)}
   .shell{grid-template-columns:300px minmax(0,1fr)}
-  .cards,.summary{grid-template-columns:1fr 1fr}
+  .opts,.summary{grid-template-columns:1fr 1fr}
 }
 @media(max-width:760px){
   .top{padding:10px 14px}
@@ -178,7 +167,7 @@ footer{border-top:1px solid var(--line);padding:22px 4vw;display:flex;justify-co
   .panel{position:static;padding:20px}
   .result{margin-top:14px;padding:18px;min-height:auto}
   .final{padding:20px}
-  .cards,.summary{grid-template-columns:1fr}
+  .opts,.summary{grid-template-columns:1fr}
   .empty{min-height:320px}
   .stageActions button,.finalActions button{flex:1}
 }
@@ -209,7 +198,7 @@ footer{border-top:1px solid var(--line);padding:22px 4vw;display:flex;justify-co
   <div class="copy">
     <div class="eyebrow">FROM EMOTION TO TANGIBLE EXPERIENCE</div>
     <h1>느낌을 <em>만질 수 있는 방향</em>으로</h1>
-    <p class="desc">감성 키워드를 해석하고, 지각과 물성으로 전환해 실제 소재·가공과 CMF 샘플까지 여섯 단계로 설계합니다. 각 단계에서 고른 방향이 다음 단계의 입력이 됩니다.</p>
+    <p class="desc">감성 키워드를 해석하고, 지각과 물성으로 전환해 실제 소재·가공과 CMF 샘플까지 여섯 단계로 설계합니다. 단계마다 이미지보드 한 장이 만들어지고, 그 위에서 방향을 고릅니다.</p>
   </div>
   <div class="progress">
     <div class="row"><span>PROJECT PROGRESS</span><b id="progressText">0%</b></div>
@@ -233,13 +222,9 @@ footer{border-top:1px solid var(--line);padding:22px 4vw;display:flex;justify-co
 
     <div class="field">
       <label class="lbl" for="apiKey">GEMINI API KEY</label>
-      <input id="apiKey" type="password" placeholder="API 키를 입력하세요" autocomplete="off" spellcheck="false">
-      <div class="apiBtns">
-        <button id="keySave" type="button">브라우저에 저장</button>
-        <button id="keyTest" type="button" class="primary">연결 확인</button>
-        <button id="keyClear" type="button" title="저장된 키 삭제" aria-label="저장된 키 삭제">✕</button>
-      </div>
-      <p class="note">텍스트 <b>gemini-flash-latest</b> · 이미지 <b>gemini-3.1-flash-image</b><br>키를 저장하면 이 브라우저에 평문으로 남습니다. 공용 PC에서는 저장하지 마세요.</p>
+      <input id="apiKey" type="password" placeholder="API 키를 입력하세요" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" data-lpignore="true">
+      <div class="apiBtns"><button id="keyTest" type="button">연결 확인</button></div>
+      <p class="note">텍스트 <b>gemini-flash-latest</b> · 이미지 <b>gemini-3.1-flash-image</b><br>키는 저장하지 않습니다. 탭을 닫으면 사라지므로 실행할 때마다 입력해 주세요.<br>이미지는 <b>단계당 1장, 6단계 총 6장</b>만 생성합니다.</p>
     </div>
 
     <div class="field">
@@ -248,7 +233,7 @@ footer{border-top:1px solid var(--line);padding:22px 4vw;display:flex;justify-co
       <div class="chips" id="chips"></div>
     </div>
 
-    <button class="generate" id="generate" type="button">감성 해석 방향 생성</button>
+    <button class="generate" id="generate" type="button">감성 해석 이미지보드 생성</button>
     <button class="cancel hide" id="cancelBtn" type="button">생성 중단</button>
     <div class="status" id="status" role="status" aria-live="polite">감성 키워드를 입력해 시작하세요.</div>
   </aside>
@@ -260,7 +245,7 @@ footer{border-top:1px solid var(--line);padding:22px 4vw;display:flex;justify-co
           <p class="kicker" id="stageCount">01 / 06</p>
           <h2><span id="resultLabel">감성 해석</span><span class="en" id="resultEn">Emotion</span></h2>
         </div>
-        <button class="headBtn hide" id="download" type="button">보드 PNG 저장</button>
+        <button class="headBtn hide" id="download" type="button">보드 이미지 저장</button>
       </div>
 
       <div class="banner warn hide" id="staleBanner"></div>
@@ -270,12 +255,13 @@ footer{border-top:1px solid var(--line);padding:22px 4vw;display:flex;justify-co
         <div>
           <div class="orb" aria-hidden="true"></div>
           <b>감성의 방향을 시각적으로 발견하세요</b>
-          <small>왼쪽에서 키워드를 입력하고 방향을 생성하면<br>선택 가능한 카드가 이곳에 나타납니다.</small>
+          <small>왼쪽에서 키워드를 입력하고 이미지보드를 생성하면<br>선택 가능한 방향이 이곳에 나타납니다.</small>
         </div>
       </div>
 
       <div id="output" class="hide">
-        <div class="cards" id="cards"></div>
+        <div class="board" id="board"></div>
+        <div class="opts" id="options"></div>
         <div class="stageActions">
           <button class="back hide" id="back" type="button">이전 단계</button>
           <button class="next" id="next" type="button" disabled>선택하고 다음 단계로</button>
@@ -297,7 +283,7 @@ footer{border-top:1px solid var(--line);padding:22px 4vw;display:flex;justify-co
 
 <footer>
   <span>EMOTIONAL CMF DESIGN</span>
-  <span>프로젝트와 API 키는 이 브라우저에만 저장됩니다.</span>
+  <span>프로젝트는 이 브라우저에만 저장되고, API 키는 어디에도 저장되지 않습니다.</span>
 </footer>
 
 <script>
@@ -308,11 +294,13 @@ footer{border-top:1px solid var(--line);padding:22px 4vw;display:flex;justify-co
 const TEXT_MODEL = "gemini-flash-latest";
 const IMAGE_MODEL = "gemini-3.1-flash-image";
 const API_BASE = "https://generativelanguage.googleapis.com/v1beta/models";
-const STORE = "emotional-cmf-design-project-v5";
-const KEYSTORE = "emotional-cmf-gemini-api-key";
+const STORE = "emotional-cmf-design-project-v6";
+const LEGACY_KEYSTORE = "emotional-cmf-gemini-api-key";  // 예전 버전이 남긴 키를 지우기 위한 항목
 const TEXT_TIMEOUT = 90000;
-const IMAGE_TIMEOUT = 180000;
-const IMAGE_CONCURRENCY = 2;
+const IMAGE_TIMEOUT = 240000;
+/* 보드 해상도. 1K ≈ $0.067/장, 2K ≈ $0.101/장.
+   보드 안에 한글이 들어가므로 가독성을 위해 2K를 기본으로 둡니다. */
+const IMAGE_SIZE = "2K";
 
 const steps = [
   { key:"emotion",     label:"감성 해석", en:"Emotion",            count:3 },
@@ -380,22 +368,13 @@ const fallback = {
   ]
 };
 
-const fallbackImagePrompt = {
-  emotion:"A soft-lit abstract material still life, diffused light through translucent surfaces, calm neutral palette",
-  perception:"An extreme close-up of a surface showing how light and touch are perceived, shallow depth of field",
-  properties:"A macro photograph of a material surface showing gloss, translucency and micro texture",
-  inspiration:"A quiet natural or architectural scene that inspires a material direction, soft daylight",
-  material:"A studio photograph of a real material sample with visible finish and processing detail",
-  sample:"A studio photograph of a finished CMF sample chip showing exact colour, gloss and texture"
-};
-
 /* ---------------------------------------------------------------- helpers */
 const $ = id => document.getElementById(id);
 const els = {};
 ["steps","stepNo","stepLabel","stepEn","apiKey","keyword","chips","generate","cancelBtn","status",
  "stageCount","resultLabel","resultEn","download","staleBanner","fallbackBanner","empty","output",
- "cards","back","next","progressText","progressBar","progressSmall","final","finalSub","summary",
- "file","loadBtn","saveBtn","resetBtn","keySave","keyTest","keyClear","finalPng","finalJson"]
+ "board","options","back","next","progressText","progressBar","progressSmall","final","finalSub",
+ "summary","file","loadBtn","saveBtn","resetBtn","keyTest","finalPng","finalJson"]
  .forEach(id => els[id] = $(id));
 
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -408,8 +387,8 @@ function setStatus(msg, tone) {
   els.status.className = "status" + (tone ? " " + tone : "");
 }
 
-/* ---------------------------------------------------------------- image store (IndexedDB) */
-const IDB_NAME = "emotional-cmf-images";
+/* ---------------------------------------------------------------- board store (IndexedDB) */
+const IDB_NAME = "emotional-cmf-boards";
 const IDB_STORE = "boards";
 let dbPromise = null;
 
@@ -427,52 +406,57 @@ function openDB() {
   });
   return dbPromise;
 }
-
 async function idbRun(mode, fn) {
   const db = await openDB();
   return new Promise((resolve, reject) => {
     const tx = db.transaction(IDB_STORE, mode);
     const req = fn(tx.objectStore(IDB_STORE));
-    tx.onabort = tx.onerror = () => reject(tx.error || new Error("이미지 저장소 오류"));
+    tx.onabort = tx.onerror = () => reject(tx.error || new Error("보드 저장소 오류"));
     if (req) { req.onsuccess = () => resolve(req.result); req.onerror = () => reject(req.error); }
     else tx.oncomplete = () => resolve();
   });
 }
+const idbGet   = k => idbRun("readonly",  st => st.get(k)).catch(() => null);
+const idbPut   = (k, v) => idbRun("readwrite", st => st.put(v, k));
+const idbDel   = k => idbRun("readwrite", st => st.delete(k)).catch(() => {});
+const idbClear = () => idbRun("readwrite", st => st.clear()).catch(() => {});
 
-const imgGet   = k => idbRun("readonly",  st => st.get(k)).catch(() => null);
-const imgSet   = (k, v) => idbRun("readwrite", st => st.put(v, k));
-const imgDel   = k => idbRun("readwrite", st => st.delete(k)).catch(() => {});
-const imgClear = () => idbRun("readwrite", st => st.clear()).catch(() => {});
+const memBoard = new Map();                       // stepKey -> dataURL (세션 캐시)
+const boardKey = stepKey => "board:" + stepKey;
 
-const memImg = new Map();               // key -> dataURL (session cache)
-const imgKey = (stepKey, i) => stepKey + ":" + i;
-
-async function putImage(key, dataURL) {
-  memImg.set(key, dataURL);
-  try { await imgSet(key, dataURL); }
-  catch (e) { console.warn("이미지 저장 실패", e); }
+async function putBoard(stepKey, dataURL) {
+  memBoard.set(stepKey, dataURL);
+  try { await idbPut(boardKey(stepKey), dataURL); }
+  catch (e) { console.warn("보드 저장 실패", e); }
 }
-async function getImage(key) {
-  if (memImg.has(key)) return memImg.get(key);
-  const v = await imgGet(key);
-  if (typeof v === "string") { memImg.set(key, v); return v; }
+async function getBoard(stepKey) {
+  if (memBoard.has(stepKey)) return memBoard.get(stepKey);
+  const v = await idbGet(boardKey(stepKey));
+  if (typeof v === "string") { memBoard.set(stepKey, v); return v; }
   return null;
 }
-async function clearStepImages(stepKey, count) {
-  for (let i = 0; i < count; i++) {
-    const k = imgKey(stepKey, i);
-    memImg.delete(k);
-    await imgDel(k);
-  }
+async function delBoard(stepKey) {
+  memBoard.delete(stepKey);
+  await idbDel(boardKey(stepKey));
 }
 
 /* ---------------------------------------------------------------- state */
-const blankState = () => ({ version:5, keyword:"", stepIndex:0, results:{}, updatedAt:"" });
+const blankState = () => ({ version:6, keyword:"", stepIndex:0, results:{}, updatedAt:"" });
 let state = blankState();
 let busy = false;
 let genToken = 0;
 let abortCtl = null;
-const imgStatus = {};   // "stepKey:i" -> "pending" | "error"
+const boardStatus = {};    // stepKey -> "pending" | "error"
+
+function normalizeOption(o, i) {
+  o = o && typeof o === "object" ? o : {};
+  return {
+    number: pad2(String(o.number || i + 1).replace(/\D/g, "") || i + 1).slice(0, 2),
+    keyword: String(o.keyword || "방향 " + (i + 1)).slice(0, 48),
+    description: String(o.description || "").slice(0, 400),
+    cues: Array.isArray(o.cues) ? o.cues.slice(0, 3).map(c => String(c).slice(0, 24)) : []
+  };
+}
 
 function sanitizeState(raw) {
   const out = blankState();
@@ -484,14 +468,13 @@ function sanitizeState(raw) {
   stepKeys.forEach((key, i) => {
     const r = src[key];
     if (!r || typeof r !== "object" || !Array.isArray(r.options) || !r.options.length) return;
-    const step = steps[i];
-    const options = r.options.slice(0, step.count).map((o, j) => normalizeOption(o, j));
+    const options = r.options.slice(0, steps[i].count).map((o, j) => normalizeOption(o, j));
     let selected;
     const sel = Number(r.selected);
     if (Number.isInteger(sel) && sel >= 0 && sel < options.length) selected = sel;
     out.results[key] = {
-      options,
-      selected,
+      options, selected,
+      hasBoard: !!r.hasBoard,
       fallback: !!r.fallback,
       sig: typeof r.sig === "string" ? r.sig : "",
       at: typeof r.at === "string" ? r.at : ""
@@ -500,23 +483,10 @@ function sanitizeState(raw) {
   return out;
 }
 
-function normalizeOption(o, i) {
-  o = o && typeof o === "object" ? o : {};
-  const cues = Array.isArray(o.cues) ? o.cues.slice(0, 3).map(c => String(c).slice(0, 24)) : [];
-  return {
-    number: pad2(String(o.number || i + 1).replace(/\D/g, "") || i + 1).slice(0, 2),
-    keyword: String(o.keyword || "방향 " + (i + 1)).slice(0, 48),
-    description: String(o.description || "").slice(0, 400),
-    cues,
-    imagePrompt: String(o.imagePrompt || "").slice(0, 700),
-    hasImage: !!o.hasImage
-  };
-}
-
 function saveLocal() {
   state.updatedAt = new Date().toISOString();
   try {
-    localStorage.setItem(STORE, JSON.stringify(state));
+    localStorage.setItem(STORE, JSON.stringify(state));   // 보드 이미지는 포함되지 않음
   } catch (e) {
     console.warn("localStorage 저장 실패", e);
     setStatus("브라우저 저장 공간이 부족해 진행 상태를 저장하지 못했습니다. 프로젝트 저장 버튼으로 파일에 백업해 주세요.", "warn");
@@ -525,7 +495,6 @@ function saveLocal() {
 
 const current = () => steps[state.stepIndex];
 
-/* 단계별 맥락 서명: 키워드 + 이전 단계 선택 결과 */
 function sigFor(index) {
   const parts = [state.keyword.trim()];
   for (let i = 0; i < index; i++) {
@@ -539,7 +508,7 @@ function isStale(index) {
   return !!r && r.sig !== sigFor(index);
 }
 function selectedPath(until) {
-  return steps.slice(0, until).map((s, i) => {
+  return steps.slice(0, until).map(s => {
     const r = state.results[s.key];
     const o = r && r.selected !== undefined ? r.options[r.selected] : null;
     return o ? `${s.label}: ${o.keyword} — ${o.description}` : "";
@@ -574,20 +543,14 @@ async function request(model, body, { timeout, signal }) {
         });
         const data = await res.json().catch(() => ({}));
         if (res.ok) return data;
-
-        const msg = data?.error?.message || `요청 실패 (HTTP ${res.status})`;
-        const err = new Error(msg);
+        const err = new Error(data?.error?.message || `요청 실패 (HTTP ${res.status})`);
         err.status = res.status;
-        if (res.status === 429 || res.status >= 500) {   // 재시도 가능
-          lastErr = err;
-          await sleep(1200 * Math.pow(2, attempt));
-          continue;
-        }
+        if (res.status === 429 || res.status >= 500) { lastErr = err; await sleep(1200 * Math.pow(2, attempt)); continue; }
         throw err;
       } catch (e) {
         if (e.name === "AbortError" || e.name === "TimeoutError") throw e;
-        if (e.status) throw e;                            // 재시도 불가 API 오류
-        lastErr = e;                                      // 네트워크 오류
+        if (e.status) throw e;
+        lastErr = e;
         if (attempt === 2) break;
         await sleep(1200 * Math.pow(2, attempt));
       }
@@ -618,10 +581,9 @@ const textSchema = {
           number: { type: "STRING" },
           keyword: { type: "STRING" },
           description: { type: "STRING" },
-          cues: { type: "ARRAY", items: { type: "STRING" } },
-          imagePrompt: { type: "STRING" }
+          cues: { type: "ARRAY", items: { type: "STRING" } }
         },
-        required: ["number", "keyword", "description", "imagePrompt"]
+        required: ["number", "keyword", "description"]
       }
     }
   },
@@ -635,9 +597,8 @@ function textPrompt(step, keyword) {
 이전 선택:
 ${selectedPath(state.stepIndex) || "없음"}
 요구사항: ${rules[step.key]}
-정확히 ${step.count}개를 제안한다.
-keyword, description, cues는 한국어로 작성한다.
-imagePrompt는 영어로 작성하며, 그 방향을 대표하는 사진 한 장을 묘사한다. 소재·표면·빛·질감 중심으로 쓰고, 글자·로고·사람·UI·색상칩·다이어그램은 넣지 않는다.`;
+정확히 ${step.count}개를 한국어로 제안한다.
+description은 한 줄로 읽히는 간결한 문장으로 쓴다.`;
 }
 
 async function callText(step, keyword, signal) {
@@ -664,8 +625,7 @@ async function callText(step, keyword, signal) {
       const err = normalizeAbort(e);
       if (err.cancelled || err.name === "AbortError") throw err;
       lastErr = err;
-      // 설정 미지원(400)일 때만 다음 설정으로 폴백
-      if (!(e.status === 400)) throw err;
+      if (e.status !== 400) throw err;      // 설정 미지원(400)일 때만 다음 설정으로 폴백
     }
   }
   throw lastErr;
@@ -675,7 +635,7 @@ function parseOptions(raw, step) {
   const cleaned = raw.replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/, "").trim();
   let parsed;
   try { parsed = JSON.parse(cleaned); }
-  catch { 
+  catch {
     const m = cleaned.match(/[[{][\s\S]*[\]}]/);
     if (!m) throw new Error("모델 응답을 JSON으로 해석하지 못했습니다.");
     parsed = JSON.parse(m[0]);
@@ -685,21 +645,34 @@ function parseOptions(raw, step) {
   return src.slice(0, step.count).map((o, i) => normalizeOption(o, i));
 }
 
-function imagePromptFor(step, option, keyword) {
-  const core = option.imagePrompt
-    || `${fallbackImagePrompt[step.key]}. Theme: ${option.keyword}. ${option.cues.join(", ")}`;
-  return `Photorealistic material photography for a CMF design board.
-${core}
-Context: emotional keyword "${keyword}", stage "${step.en}".
-Style: single subject, editorial product photography, soft directional studio light, warm neutral background, shallow depth of field, fine surface detail visible, calm colour grading.
-Strictly no text, no letters, no numbers, no logos, no watermark, no people, no collage, no split frames, no UI.`;
+/* 단계당 딱 한 번 호출되는 이미지보드 프롬프트 */
+function boardPrompt(step, options, keyword, stepIndex) {
+  const items = options.map(o =>
+    `${o.number} / ${o.keyword} / ${o.description}${o.cues.length ? ` / ${o.cues.join(", ")}` : ""}`
+  ).join("\n");
+  const grid = options.length === 6 ? "3 columns x 2 rows" : "3 columns x 1 row";
+  const prior = selectedPath(stepIndex) || "none";
+  return `Create ONE premium editorial CMF design image board. Strict 16:9 landscape, single flat board, no mockup, no perspective.
+
+Layout: warm off-white paper background, calm Swiss / Korean editorial grid, generous whitespace, thin hairline rules, modern sans-serif typography, quiet neutral colour scheme with a single soft mint accent.
+Header area: small label "EMOTIONAL CMF DESIGN", a large title "${step.label} ${step.en}", and the emotional keyword "${keyword}" as a subtitle.
+Body: exactly ${grid} of equal-width cards, one card per item listed below, in the given order.
+Each card contains, from top to bottom: the two-digit number, the Korean keyword in bold, the short Korean description in smaller text, and below them ONE distinctive photorealistic material / surface / space image that fills the lower part of the card.
+Render the Korean text exactly as written below, correctly spelled and clearly legible. Do not translate it, do not paraphrase it, do not add any other text.
+
+Cards:
+${items}
+
+Prior direction: ${prior}
+
+No people as protagonists, no logos, no watermark, no footer, no page numbers, no colour swatch chips, no UI elements, no text over the photographs.`;
 }
 
-async function callImage(prompt, signal) {
+async function callBoard(prompt, signal) {
   const base = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
   const configs = [
-    { responseModalities: ["TEXT", "IMAGE"], imageConfig: { aspectRatio: "4:3", imageSize: "1K" } },
-    { responseModalities: ["TEXT", "IMAGE"], imageConfig: { aspectRatio: "4:3" } },
+    { responseModalities: ["TEXT", "IMAGE"], imageConfig: { aspectRatio: "16:9", imageSize: IMAGE_SIZE } },
+    { responseModalities: ["TEXT", "IMAGE"], imageConfig: { aspectRatio: "16:9" } },
     { responseModalities: ["TEXT", "IMAGE"] }
   ];
   let lastErr;
@@ -718,13 +691,13 @@ async function callImage(prompt, signal) {
       const err = normalizeAbort(e);
       if (err.cancelled || err.name === "AbortError") throw err;
       lastErr = err;
-      if (!(e.status === 400)) throw err;
+      if (e.status !== 400) throw err;
     }
   }
   throw lastErr;
 }
 
-/* ---------------------------------------------------------------- generation flow */
+/* ---------------------------------------------------------------- generation */
 function lockUI(locked) {
   els.generate.disabled = locked;
   els.cancelBtn.classList.toggle("hide", !locked);
@@ -734,20 +707,9 @@ function lockUI(locked) {
   els.saveBtn.disabled = locked;
   els.keyTest.disabled = locked;
   els.chips.querySelectorAll("button").forEach(b => b.disabled = locked);
-  els.steps.querySelectorAll("button").forEach(b => { if (locked) b.disabled = true; });
+  if (locked) els.steps.querySelectorAll("button").forEach(b => b.disabled = true);
   els.back.disabled = locked;
   els.next.disabled = locked || !canAdvance();
-}
-
-async function runPool(tasks, limit) {
-  let i = 0;
-  const workers = Array.from({ length: Math.min(limit, tasks.length) }, async () => {
-    while (i < tasks.length) {
-      const idx = i++;
-      await tasks[idx]();
-    }
-  });
-  await Promise.all(workers);
 }
 
 async function generate() {
@@ -764,65 +726,51 @@ async function generate() {
   state.keyword = keyword;
   els.generate.innerHTML = '<i class="spinner"></i>생성 중';
   lockUI(true);
-  setStatus(`${step.label} 방향 ${step.count}개를 생성하고 있습니다…`);
+  setStatus(`${step.label} 방향 ${step.count}개를 정리하고 있습니다…`);
 
   let options, usedFallback = false;
   try {
     options = await callText(step, keyword, abortCtl.signal);
   } catch (e) {
-    if (e.cancelled) { finishGeneration(token, "생성을 중단했습니다."); return; }
+    if (e.cancelled) { finish(token, "생성을 중단했습니다."); return; }
     options = fallback[step.key].slice(0, step.count)
       .map((x, i) => normalizeOption({ number: i + 1, keyword: x[0], description: x[1], cues: x[2] }, i));
     usedFallback = true;
-    setStatus(`텍스트 생성 실패: ${e.message} 예시 데이터를 대신 표시합니다.`, "warn");
   }
   if (token !== genToken) return;
 
-  await clearStepImages(step.key, 12);
+  await delBoard(step.key);
   state.results[step.key] = {
-    options, selected: undefined, fallback: usedFallback,
+    options, selected: undefined, hasBoard: false, fallback: usedFallback,
     sig: sigFor(stepIdx), at: new Date().toISOString()
   };
+  boardStatus[step.key] = "pending";
   saveLocal();
   render();
+  setStatus(usedFallback
+    ? "텍스트 생성에 실패해 예시 데이터로 이미지보드 1장을 생성하고 있습니다…"
+    : `${step.label} 텍스트 완료. 이미지보드 1장을 생성하고 있습니다…`, usedFallback ? "warn" : undefined);
 
-  if (!usedFallback) setStatus(`${step.label} 텍스트 완료. 이미지 ${options.length}장을 생성하고 있습니다…`);
-  else setStatus(`예시 데이터로 이미지 ${options.length}장을 생성하고 있습니다…`, "warn");
-
-  options.forEach((_, i) => imgStatus[imgKey(step.key, i)] = "pending");
-  render();
-
-  let ok = 0, failed = 0, cancelled = false;
-  await runPool(options.map((o, i) => async () => {
-    if (token !== genToken || cancelled) return;
-    const key = imgKey(step.key, i);
-    try {
-      const dataURL = await callImage(imagePromptFor(step, o, keyword), abortCtl.signal);
-      if (token !== genToken) return;
-      await putImage(key, dataURL);
-      o.hasImage = true;
-      delete imgStatus[key];
-      ok++;
-      saveLocal();
-    } catch (e) {
-      if (e.cancelled) { cancelled = true; delete imgStatus[key]; return; }
-      imgStatus[key] = "error";
-      failed++;
-    }
-    if (token === genToken) updateCard(i);
-  }), IMAGE_CONCURRENCY);
-
-  if (token !== genToken) return;
-
-  let msg;
-  if (cancelled) msg = "이미지 생성을 중단했습니다. 카드별로 다시 시도할 수 있습니다.";
-  else if (failed) msg = `이미지 ${ok}장 완료, ${failed}장 실패. 실패한 카드는 개별로 다시 시도할 수 있습니다.`;
-  else msg = `${step.label} 방향 ${options.length}개가 준비되었습니다. 하나를 선택하세요.`;
-  if (usedFallback) msg = "AI 응답 실패 — 예시 데이터입니다. " + msg;
-  finishGeneration(token, msg, usedFallback || failed || cancelled ? "warn" : "ok");
+  try {
+    const dataURL = await callBoard(boardPrompt(step, options, keyword, stepIdx), abortCtl.signal);
+    if (token !== genToken) return;
+    await putBoard(step.key, dataURL);
+    state.results[step.key].hasBoard = true;
+    delete boardStatus[step.key];
+    saveLocal();
+    finish(token,
+      (usedFallback ? "AI 텍스트 응답 실패 — 예시 데이터입니다. " : "") +
+      `${step.label} 이미지보드가 완성되었습니다. 아래에서 방향을 선택하세요.`,
+      usedFallback ? "warn" : "ok");
+  } catch (e) {
+    if (token !== genToken) return;
+    if (e.cancelled) { delete boardStatus[step.key]; finish(token, "이미지보드 생성을 중단했습니다. 아래 방향 텍스트는 사용할 수 있습니다.", "warn"); return; }
+    boardStatus[step.key] = "error";
+    finish(token, `이미지보드 생성 실패: ${e.message} 방향 텍스트는 사용할 수 있습니다.`, "warn");
+  }
 }
 
-function finishGeneration(token, msg, tone) {
+function finish(token, msg, tone) {
   if (token !== genToken) return;
   busy = false;
   abortCtl = null;
@@ -830,33 +778,32 @@ function finishGeneration(token, msg, tone) {
   render();
 }
 
-async function retryImage(index) {
+async function retryBoard() {
   if (busy) return;
   const step = current();
   const r = state.results[step.key];
   if (!r) return;
-  const option = r.options[index];
-  const key = imgKey(step.key, index);
   const token = ++genToken;
   busy = true;
   abortCtl = new AbortController();
-  imgStatus[key] = "pending";
+  boardStatus[step.key] = "pending";
+  els.generate.innerHTML = '<i class="spinner"></i>생성 중';
   lockUI(true);
-  updateCard(index);
-  setStatus(`${option.number} ${option.keyword} 이미지를 다시 생성하고 있습니다…`);
+  render();
+  setStatus(`${step.label} 이미지보드를 다시 생성하고 있습니다… (이미지 1장)`);
   try {
-    const dataURL = await callImage(imagePromptFor(step, option, state.keyword.trim()), abortCtl.signal);
+    const dataURL = await callBoard(boardPrompt(step, r.options, state.keyword.trim(), state.stepIndex), abortCtl.signal);
     if (token !== genToken) return;
-    await putImage(key, dataURL);
-    option.hasImage = true;
-    delete imgStatus[key];
+    await putBoard(step.key, dataURL);
+    r.hasBoard = true;
+    delete boardStatus[step.key];
     saveLocal();
-    finishGeneration(token, "이미지를 생성했습니다.", "ok");
+    finish(token, "이미지보드를 생성했습니다.", "ok");
   } catch (e) {
     if (token !== genToken) return;
-    imgStatus[key] = e.cancelled ? undefined : "error";
-    if (!imgStatus[key]) delete imgStatus[key];
-    finishGeneration(token, e.cancelled ? "이미지 생성을 중단했습니다." : `이미지 생성 실패: ${e.message}`, "warn");
+    if (e.cancelled) { delete boardStatus[step.key]; finish(token, "생성을 중단했습니다.", "warn"); return; }
+    boardStatus[step.key] = "error";
+    finish(token, `이미지보드 생성 실패: ${e.message}`, "warn");
   }
 }
 
@@ -876,28 +823,24 @@ function render() {
   els.resultLabel.textContent = step.label;
   els.resultEn.textContent = step.en;
   els.stageCount.textContent = `${pad2(state.stepIndex + 1)} / ${pad2(steps.length)}`;
-  if (!busy) els.generate.textContent = r ? `${step.label} 다시 생성` : `${step.label} 방향 생성`;
+  if (!busy) els.generate.textContent = `${step.label} ${r ? "다시 생성" : "이미지보드 생성"}`;
 
-  const done = completedCount();
-  const pct = Math.round(done / steps.length * 100);
-  els.progressText.textContent = pct + "%";
-  els.progressBar.style.width = pct + "%";
-  els.progressSmall.textContent = `6단계 중 ${done}단계 확정`;
-
+  updateProgress();
   renderSteps();
 
   els.empty.classList.toggle("hide", !!r);
   els.output.classList.toggle("hide", !r);
-  els.download.classList.toggle("hide", !r);
+  els.download.classList.toggle("hide", !(r && r.hasBoard));
 
   const stale = isStale(state.stepIndex);
   els.staleBanner.classList.toggle("hide", !stale);
   if (stale) els.staleBanner.innerHTML = "<span>⟳</span><span><b>이전 단계가 변경되었습니다.</b> 지금 보이는 방향은 예전 맥락으로 만들어졌습니다. 다시 생성하면 최신 선택이 반영됩니다.</span>";
 
-  els.fallbackBanner.classList.toggle("hide", !(r && r.fallback));
-  if (r && r.fallback) els.fallbackBanner.innerHTML = "<span>!</span><span><b>AI 응답이 아닌 예시 데이터입니다.</b> 텍스트 생성이 실패해 내장 샘플을 표시하고 있습니다. 연결을 확인한 뒤 다시 생성해 주세요.</span>";
+  const fb = !!(r && r.fallback);
+  els.fallbackBanner.classList.toggle("hide", !fb);
+  if (fb) els.fallbackBanner.innerHTML = "<span>!</span><span><b>AI 응답이 아닌 예시 데이터입니다.</b> 텍스트 생성이 실패해 내장 샘플을 표시하고 있습니다. 연결을 확인한 뒤 다시 생성해 주세요.</span>";
 
-  if (r) renderCards(step, r);
+  if (r) { renderBoard(step, r); renderOptions(step, r); }
 
   els.back.classList.toggle("hide", state.stepIndex === 0);
   els.next.disabled = busy || !canAdvance();
@@ -905,6 +848,14 @@ function render() {
 
   renderFinal();
   lockUI(busy);
+}
+
+function updateProgress() {
+  const done = completedCount();
+  const pct = Math.round(done / steps.length * 100);
+  els.progressText.textContent = pct + "%";
+  els.progressBar.style.width = pct + "%";
+  els.progressSmall.textContent = `6단계 중 ${done}단계 확정`;
 }
 
 function renderSteps() {
@@ -924,74 +875,53 @@ function renderSteps() {
   if (active && window.innerWidth <= 760) active.scrollIntoView({ block: "nearest", inline: "center" });
 }
 
-function cardMarkup(step, r, o, i) {
-  const key = imgKey(step.key, i);
-  const st = imgStatus[key];
-  let fig;
-  if (st === "pending") fig = `<div class="ph"><i class="spinner"></i>이미지 생성 중</div>`;
-  else if (o.hasImage) fig = `<img data-img="${i}" alt="${esc(o.keyword)} 이미지" src="${memImg.get(key) || ""}">`;
-  else if (st === "error") fig = `<div class="ph">이미지를 만들지 못했습니다<br><button class="retry" type="button" data-retry="${i}">이미지 다시 생성</button></div>`;
-  else fig = `<div class="ph">이미지 없음<br><button class="retry" type="button" data-retry="${i}">이미지 생성</button></div>`;
+let boardRendered = "";
+function renderBoard(step, r) {
+  const st = boardStatus[step.key];
+  const sig = [step.key, r.at, st || "", r.hasBoard ? "1" : "0"].join("|");
+  if (sig === boardRendered) return;
+  boardRendered = sig;
 
-  return `<div class="card ${r.selected === i ? "selected" : ""}" data-card="${i}">
-    <div class="fig">${fig}</div>
-    <button class="body" type="button" data-option="${i}" aria-pressed="${r.selected === i}" style="border:0;background:none;text-align:left;width:100%">
-      <span class="top-row"><span class="onum" aria-hidden="true">${r.selected === i ? "✓" : esc(o.number)}</span><strong>${esc(o.keyword)}</strong></span>
-      <span class="desc">${esc(o.description)}</span>
-      ${o.cues.length ? `<span class="cues">${esc(o.cues.join(" · "))}</span>` : ""}
-    </button>
-  </div>`;
-}
-
-let cardsSignature = "";
-function renderCards(step, r) {
-  const sig = [step.key, r.options.length, r.at, r.selected,
-    r.options.map((o, i) => (o.hasImage ? "1" : "0") + (imgStatus[imgKey(step.key, i)] || "")).join(",")].join("|");
-  if (sig === cardsSignature) return;
-  cardsSignature = sig;
-  els.cards.innerHTML = r.options.map((o, i) => cardMarkup(step, r, o, i)).join("");
-  loadStepImages(step, r);
-}
-
-function updateCard(i) {
-  const step = current();
-  const r = state.results[step.key];
-  if (!r) return;
-  const el = els.cards.querySelector(`[data-card="${i}"]`);
-  if (!el) { cardsSignature = ""; render(); return; }
-  const wrap = document.createElement("div");
-  wrap.innerHTML = cardMarkup(step, r, r.options[i], i);
-  el.replaceWith(wrap.firstElementChild);
-  cardsSignature = "";
-}
-
-async function loadStepImages(step, r) {
-  for (let i = 0; i < r.options.length; i++) {
-    if (!r.options[i].hasImage) continue;
-    const key = imgKey(step.key, i);
-    if (memImg.has(key)) continue;
-    const data = await getImage(key);
-    if (!data) { r.options[i].hasImage = false; updateCard(i); continue; }
-    if (current().key !== step.key) return;
-    const img = els.cards.querySelector(`img[data-img="${i}"]`);
-    if (img) img.src = data;
+  if (st === "pending") {
+    els.board.innerHTML = `<div class="ph"><i class="spinner"></i>이미지보드를 생성하고 있습니다<br>보통 20~60초 정도 걸립니다</div>`;
+  } else if (r.hasBoard) {
+    els.board.innerHTML = `<img id="boardImg" alt="${esc(step.label)} 이미지보드" src="${memBoard.get(step.key) || ""}">`;
+    if (!memBoard.has(step.key)) {
+      getBoard(step.key).then(d => {
+        if (current().key !== step.key) return;
+        const img = document.getElementById("boardImg");
+        if (d && img) img.src = d;
+        else if (!d) { r.hasBoard = false; boardRendered = ""; render(); }
+      });
+    }
+  } else {
+    els.board.innerHTML = `<div class="ph">${st === "error" ? "이미지보드를 만들지 못했습니다." : "이미지보드가 없습니다."}<br>아래 방향 텍스트는 그대로 사용할 수 있습니다.<br><button class="retry" type="button" id="retryBoard">이미지보드 생성 (이미지 1장)</button></div>`;
   }
 }
 
+function renderOptions(step, r) {
+  els.options.innerHTML = r.options.map((o, i) => `
+    <button class="opt ${r.selected === i ? "selected" : ""}" type="button" data-option="${i}" aria-pressed="${r.selected === i}">
+      <span class="onum" aria-hidden="true">${r.selected === i ? "✓" : esc(o.number)}</span>
+      <span>
+        <strong>${esc(o.keyword)}</strong>
+        <span class="desc">${esc(o.description)}</span>
+        ${o.cues.length ? `<span class="cues">${esc(o.cues.join(" · "))}</span>` : ""}
+      </span>
+    </button>`).join("");
+}
+
 function syncSelection() {
-  const step = current();
-  const r = state.results[step.key];
+  const r = state.results[current().key];
   if (!r) return;
-  els.cards.querySelectorAll("[data-card]").forEach(el => {
-    const i = Number(el.dataset.card);
+  els.options.querySelectorAll("[data-option]").forEach(el => {
+    const i = Number(el.dataset.option);
     const on = r.selected === i;
     el.classList.toggle("selected", on);
-    const btn = el.querySelector("[data-option]");
-    if (btn) btn.setAttribute("aria-pressed", String(on));
+    el.setAttribute("aria-pressed", String(on));
     const num = el.querySelector(".onum");
     if (num) num.textContent = on ? "✓" : r.options[i].number;
   });
-  cardsSignature = "";
 }
 
 async function renderFinal() {
@@ -1002,28 +932,24 @@ async function renderFinal() {
   els.summary.innerHTML = steps.map(s => {
     const r = state.results[s.key];
     const o = r.options[r.selected];
-    const key = imgKey(s.key, r.selected);
-    const src = memImg.get(key) || "";
     return `<article class="sum">
-      <div class="fig">${o.hasImage ? `<img data-final="${esc(key)}" alt="${esc(o.keyword)} 이미지" src="${src}">` : ""}</div>
+      <div class="fig">${r.hasBoard ? `<img data-final="${esc(s.key)}" alt="${esc(s.label)} 보드" src="${memBoard.get(s.key) || ""}">` : ""}</div>
       <div class="body">
         <div class="step">${esc(s.label)} · ${esc(s.en)}</div>
         <strong>${esc(o.keyword)}</strong>
-        <span class="desc">${esc(o.description)}</span>
+        <p>${esc(o.description)}</p>
       </div>
     </article>`;
   }).join("");
   for (const s of steps) {
-    const r = state.results[s.key];
-    if (!r.options[r.selected].hasImage) continue;
-    const key = imgKey(s.key, r.selected);
-    const data = await getImage(key);
-    const img = els.summary.querySelector(`img[data-final="${key}"]`);
-    if (img && data) img.src = data;
+    if (!state.results[s.key].hasBoard || memBoard.has(s.key)) continue;
+    const d = await getBoard(s.key);
+    const img = els.summary.querySelector(`img[data-final="${s.key}"]`);
+    if (img && d) img.src = d;
   }
 }
 
-/* ---------------------------------------------------------------- canvas export */
+/* ---------------------------------------------------------------- export */
 function loadImageEl(src) {
   return new Promise((resolve, reject) => {
     const img = new Image();
@@ -1035,8 +961,7 @@ function loadImageEl(src) {
 function drawCover(ctx, img, x, y, w, h) {
   const r = Math.max(w / img.width, h / img.height);
   const dw = img.width * r, dh = img.height * r;
-  ctx.save();
-  ctx.beginPath(); ctx.rect(x, y, w, h); ctx.clip();
+  ctx.save(); ctx.beginPath(); ctx.rect(x, y, w, h); ctx.clip();
   ctx.drawImage(img, x + (w - dw) / 2, y + (h - dh) / 2, dw, dh);
   ctx.restore();
 }
@@ -1045,9 +970,9 @@ function wrapText(ctx, text, x, y, maxW, lineH, maxLines) {
   const lines = [];
   let line = "";
   const push = () => { if (line) { lines.push(line); line = ""; } };
-  for (const wRaw of tokens) {
-    let w = wRaw;
-    while (ctx.measureText(w).width > maxW) {          // 공백 없는 긴 문자열 대응
+  for (const raw of tokens) {
+    let w = raw;
+    while (ctx.measureText(w).width > maxW) {
       push();
       let cut = 1;
       while (cut < w.length && ctx.measureText(w.slice(0, cut + 1)).width <= maxW) cut++;
@@ -1070,71 +995,13 @@ function wrapText(ctx, text, x, y, maxW, lineH, maxLines) {
 }
 const FONT = '"Pretendard","Noto Sans KR","Apple SD Gothic Neo",system-ui,sans-serif';
 
-async function composeBoard(step) {
-  const r = state.results[step.key];
-  const cols = 3, rows = Math.ceil(r.options.length / cols);
-  const W = 1920, H = rows > 1 ? 1400 : 1080;
-  const c = document.createElement("canvas");
-  c.width = W; c.height = H;
-  const ctx = c.getContext("2d");
-  ctx.fillStyle = "#f7f7f4"; ctx.fillRect(0, 0, W, H);
-  ctx.textBaseline = "top";
-
-  const M = 90;
-  ctx.fillStyle = "#1c5c4b"; ctx.font = `800 20px ${FONT}`;
-  ctx.fillText("EMOTIONAL CMF DESIGN", M, 68);
-  ctx.fillStyle = "#141d1a"; ctx.font = `600 54px ${FONT}`;
-  ctx.fillText(`${step.label}  ${step.en}`, M, 104);
-  ctx.fillStyle = "#5d6b65"; ctx.font = `400 24px ${FONT}`;
-  ctx.fillText(state.keyword.trim(), M, 176);
-  ctx.strokeStyle = "#dde4e0"; ctx.lineWidth = 1;
-  ctx.beginPath(); ctx.moveTo(M, 232); ctx.lineTo(W - M, 232); ctx.stroke();
-
-  const gap = 40;
-  const cw = (W - M * 2 - gap * (cols - 1)) / cols;
-  const imgH = Math.round(cw * 3 / 4);
-  const rowH = imgH + 210;
-  const top = 280;
-
-  for (let i = 0; i < r.options.length; i++) {
-    const o = r.options[i];
-    const col = i % cols, row = Math.floor(i / cols);
-    const x = M + col * (cw + gap), y = top + row * (rowH + 30);
-
-    ctx.fillStyle = "#e9edeb"; ctx.fillRect(x, y, cw, imgH);
-    const data = o.hasImage ? await getImage(imgKey(step.key, i)) : null;
-    if (data) { try { drawCover(ctx, await loadImageEl(data), x, y, cw, imgH); } catch {} }
-    else {
-      ctx.fillStyle = "#9aa8a2"; ctx.font = `400 20px ${FONT}`;
-      ctx.fillText("이미지 없음", x + 20, y + imgH / 2 - 12);
-    }
-
-    if (r.selected === i) { ctx.fillStyle = "#9ff3cf"; ctx.fillRect(x, y + imgH, cw, 6); }
-
-    let ty = y + imgH + 26;
-    ctx.fillStyle = "#5d6b65"; ctx.font = `800 18px ${FONT}`;
-    ctx.fillText(o.number + (r.selected === i ? "  SELECTED" : ""), x, ty);
-    ty += 28;
-    ctx.fillStyle = "#141d1a"; ctx.font = `700 30px ${FONT}`;
-    ty = wrapText(ctx, o.keyword, x, ty, cw, 38, 2) + 8;
-    ctx.fillStyle = "#3c4a44"; ctx.font = `400 20px ${FONT}`;
-    ty = wrapText(ctx, o.description, x, ty, cw, 30, 3) + 4;
-    if (o.cues.length) {
-      ctx.fillStyle = "#1c5c4b"; ctx.font = `700 18px ${FONT}`;
-      ctx.fillText(o.cues.join(" · "), x, ty);
-    }
-  }
-
-  ctx.fillStyle = "#8b9791"; ctx.font = `400 17px ${FONT}`;
-  ctx.fillText(new Date().toLocaleDateString("ko-KR"), M, H - 60);
-  return c.toDataURL("image/png");
-}
-
+/* 최종 컨셉 보드는 이미 만들어진 6장의 보드를 재사용해 합성합니다. 추가 생성 없음. */
 async function composeFinal() {
-  const W = 1920, H = 1400;
+  const W = 1920, H = 1500;
   const c = document.createElement("canvas");
   c.width = W; c.height = H;
   const ctx = c.getContext("2d");
+  if (!ctx) throw new Error("이 브라우저에서 캔버스를 사용할 수 없습니다.");
   ctx.fillStyle = "#f7f7f4"; ctx.fillRect(0, 0, W, H);
   ctx.textBaseline = "top";
   const M = 90;
@@ -1143,26 +1010,26 @@ async function composeFinal() {
   ctx.fillText("EMOTIONAL CMF DESIGN · FINAL DIRECTION", M, 68);
   ctx.fillStyle = "#141d1a"; ctx.font = `600 56px ${FONT}`;
   wrapText(ctx, state.keyword.trim(), M, 106, W - M * 2, 64, 2);
-  ctx.strokeStyle = "#dde4e0";
+  ctx.strokeStyle = "#dde4e0"; ctx.lineWidth = 1;
   ctx.beginPath(); ctx.moveTo(M, 248); ctx.lineTo(W - M, 248); ctx.stroke();
 
   const cols = 3, gap = 40;
   const cw = (W - M * 2 - gap * (cols - 1)) / cols;
-  const imgH = Math.round(cw * 3 / 4);
-  const top = 300, rowH = imgH + 190;
+  const imgH = Math.round(cw * 9 / 16);
+  const top = 300, rowH = imgH + 230;
 
   for (let i = 0; i < steps.length; i++) {
     const s = steps[i], r = state.results[s.key], o = r.options[r.selected];
-    const col = i % cols, row = Math.floor(i / cols);
-    const x = M + col * (cw + gap), y = top + row * (rowH + 30);
+    const x = M + (i % cols) * (cw + gap);
+    const y = top + Math.floor(i / cols) * (rowH + 30);
 
     ctx.fillStyle = "#e9edeb"; ctx.fillRect(x, y, cw, imgH);
-    const data = o.hasImage ? await getImage(imgKey(s.key, r.selected)) : null;
+    const data = r.hasBoard ? await getBoard(s.key) : null;
     if (data) { try { drawCover(ctx, await loadImageEl(data), x, y, cw, imgH); } catch {} }
 
     let ty = y + imgH + 22;
     ctx.fillStyle = "#1c5c4b"; ctx.font = `800 17px ${FONT}`;
-    ctx.fillText(`${pad2(i + 1)}  ${s.label} · ${s.en}`.toUpperCase(), x, ty);
+    ctx.fillText(`${pad2(i + 1)}  ${s.label} · ${s.en}`, x, ty);
     ty += 28;
     ctx.fillStyle = "#141d1a"; ctx.font = `700 29px ${FONT}`;
     ty = wrapText(ctx, o.keyword, x, ty, cw, 36, 2) + 6;
@@ -1185,33 +1052,32 @@ function downloadText(text, name, type) {
   downloadURL(url, name);
   setTimeout(() => URL.revokeObjectURL(url), 2000);
 }
+const extOf = dataURL => {
+  const m = /^data:image\/([a-z0-9.+-]+);/i.exec(dataURL || "");
+  const t = (m ? m[1] : "png").toLowerCase();
+  return t === "jpeg" ? "jpg" : t;
+};
 
-/* ---------------------------------------------------------------- project file */
 async function exportProject() {
-  const withImages = confirm("이미지를 포함해 저장할까요?\n\n확인: 이미지 포함 (파일이 매우 커집니다)\n취소: 텍스트만 저장");
-  const payload = { app: "emotional-cmf-design", version: 5, state, images: null };
-  if (withImages) {
-    const images = {};
+  const withBoards = confirm("이미지보드까지 포함해 저장할까요?\n\n확인: 보드 포함 (파일이 커집니다)\n취소: 텍스트만 저장");
+  const payload = { app: "emotional-cmf-design", version: 6, state, boards: null };
+  if (withBoards) {
+    const boards = {};
     for (const s of steps) {
       const r = state.results[s.key];
-      if (!r) continue;
-      for (let i = 0; i < r.options.length; i++) {
-        if (!r.options[i].hasImage) continue;
-        const k = imgKey(s.key, i);
-        const d = await getImage(k);
-        if (d) images[k] = d;
-      }
+      if (!r || !r.hasBoard) continue;
+      const d = await getBoard(s.key);
+      if (d) boards[s.key] = d;
     }
-    payload.images = images;
+    payload.boards = boards;
   }
   downloadText(JSON.stringify(payload), `CMF_${safeName(state.keyword)}.json`, "application/json");
-  setStatus(withImages ? "이미지를 포함해 프로젝트를 저장했습니다." : "텍스트만 저장했습니다. 이미지는 이 브라우저에 남아 있습니다.", "ok");
+  setStatus(withBoards ? "이미지보드를 포함해 저장했습니다." : "텍스트만 저장했습니다. 보드는 이 브라우저에 남아 있습니다.", "ok");
 }
 
 async function importProject(file) {
-  const text = await file.text();
   let payload;
-  try { payload = JSON.parse(text); }
+  try { payload = JSON.parse(await file.text()); }
   catch { setStatus("올바른 프로젝트 파일이 아닙니다.", "warn"); return; }
 
   const next = sanitizeState(payload && payload.state ? payload.state : payload);
@@ -1220,56 +1086,53 @@ async function importProject(file) {
     return;
   }
   state = next;
-  memImg.clear();
-  await imgClear();
+  memBoard.clear();
+  Object.keys(boardStatus).forEach(k => delete boardStatus[k]);
+  await idbClear();
 
   let restored = 0;
-  const images = payload && payload.images;
-  if (images && typeof images === "object") {
-    for (const [k, v] of Object.entries(images)) {
-      if (typeof v !== "string" || !v.startsWith("data:image/")) continue;
-      const [sk, idx] = k.split(":");
-      if (!stepKeys.includes(sk) || !/^\d+$/.test(idx || "")) continue;
-      await putImage(k, v);
+  const boards = payload && payload.boards;
+  if (boards && typeof boards === "object") {
+    for (const [k, v] of Object.entries(boards)) {
+      if (!stepKeys.includes(k)) continue;
+      if (typeof v !== "string" || !/^data:image\//i.test(v)) continue;
+      await putBoard(k, v);
       restored++;
     }
   }
-  // 이미지가 없는 항목은 플래그를 내려서 카드가 잘못 비어 보이지 않게 함
   for (const s of steps) {
     const r = state.results[s.key];
-    if (!r) continue;
-    for (let i = 0; i < r.options.length; i++) {
-      if (r.options[i].hasImage && !memImg.has(imgKey(s.key, i))) r.options[i].hasImage = false;
-    }
+    if (r && r.hasBoard && !memBoard.has(s.key)) r.hasBoard = false;
   }
   els.keyword.value = state.keyword;
-  cardsSignature = "";
+  boardRendered = "";
   saveLocal();
   render();
-  setStatus(restored ? `프로젝트를 불러왔습니다. 이미지 ${restored}장 복원.` : "프로젝트를 불러왔습니다. 이미지는 카드별로 다시 생성할 수 있습니다.", "ok");
+  setStatus(restored ? `프로젝트를 불러왔습니다. 보드 ${restored}장 복원.` : "프로젝트를 불러왔습니다. 보드는 단계별로 다시 생성할 수 있습니다.", "ok");
 }
 
 /* ---------------------------------------------------------------- events */
 els.generate.addEventListener("click", generate);
 els.cancelBtn.addEventListener("click", () => { if (abortCtl) abortCtl.abort(); });
 
+els.board.addEventListener("click", e => {
+  if (e.target.closest("#retryBoard")) retryBoard();
+});
+
 els.steps.addEventListener("click", e => {
   const btn = e.target.closest("[data-step]");
   if (!btn || btn.disabled || busy) return;
   state.stepIndex = Number(btn.dataset.step);
-  cardsSignature = "";
+  boardRendered = "";
   saveLocal();
   render();
 });
 
-els.cards.addEventListener("click", e => {
-  const retry = e.target.closest("[data-retry]");
-  if (retry) { retryImage(Number(retry.dataset.retry)); return; }
+els.options.addEventListener("click", e => {
   const opt = e.target.closest("[data-option]");
   if (!opt || busy) return;
   const i = Number(opt.dataset.option);
-  const step = current();
-  const r = state.results[step.key];
+  const r = state.results[current().key];
   if (!r) return;
   r.selected = i;
   r.sig = sigFor(state.stepIndex);
@@ -1278,10 +1141,7 @@ els.cards.addEventListener("click", e => {
   els.next.disabled = false;
   els.next.textContent = state.stepIndex === steps.length - 1 ? "최종 보드 보기" : `선택하고 ${steps[state.stepIndex + 1].label}로`;
   renderSteps();
-  const done = completedCount();
-  els.progressText.textContent = Math.round(done / steps.length * 100) + "%";
-  els.progressBar.style.width = Math.round(done / steps.length * 100) + "%";
-  els.progressSmall.textContent = `6단계 중 ${done}단계 확정`;
+  updateProgress();
   renderFinal();
   setStatus(`${r.options[i].number} ${r.options[i].keyword} 방향을 선택했습니다.`, "ok");
 });
@@ -1290,14 +1150,13 @@ els.next.addEventListener("click", () => {
   if (busy || !canAdvance()) return;
   if (state.stepIndex < steps.length - 1) {
     state.stepIndex++;
-    cardsSignature = "";
+    boardRendered = "";
     saveLocal();
     render();
-    setStatus(`${current().label} 단계입니다. 이전 선택을 반영해 방향을 생성하세요.`);
+    setStatus(`${current().label} 단계입니다. 이전 선택을 반영해 보드를 생성하세요.`);
     els.generate.focus();
     window.scrollTo({ top: document.querySelector(".shell").offsetTop - 90, behavior: "smooth" });
   } else if (allDone()) {
-    renderFinal();
     els.final.scrollIntoView({ behavior: "smooth", block: "start" });
   } else {
     setStatus("아직 확정되지 않았거나 다시 생성이 필요한 단계가 있습니다.", "warn");
@@ -1307,27 +1166,25 @@ els.next.addEventListener("click", () => {
 els.back.addEventListener("click", () => {
   if (busy || state.stepIndex === 0) return;
   state.stepIndex--;
-  cardsSignature = "";
+  boardRendered = "";
   saveLocal();
   render();
 });
 
 els.download.addEventListener("click", async () => {
   const step = current();
-  if (!state.results[step.key]) return;
-  setStatus("보드 이미지를 만들고 있습니다…");
-  try {
-    const url = await composeBoard(step);
-    downloadURL(url, `${pad2(state.stepIndex + 1)}_${safeName(step.label)}_${safeName(state.keyword)}.png`);
-    setStatus("보드 PNG를 저장했습니다.", "ok");
-  } catch (e) { setStatus("보드를 만들지 못했습니다: " + e.message, "warn"); }
+  const r = state.results[step.key];
+  if (!r || !r.hasBoard) return;
+  const data = await getBoard(step.key);
+  if (!data) { setStatus("보드 이미지를 찾지 못했습니다. 다시 생성해 주세요.", "warn"); return; }
+  downloadURL(data, `${pad2(state.stepIndex + 1)}_${safeName(step.label)}_${safeName(state.keyword)}.${extOf(data)}`);
+  setStatus("보드 이미지를 저장했습니다.", "ok");
 });
 
 els.finalPng.addEventListener("click", async () => {
-  setStatus("최종 컨셉 보드를 만들고 있습니다…");
+  setStatus("최종 컨셉 보드를 만들고 있습니다… (추가 이미지 생성 없음)");
   try {
-    const url = await composeFinal();
-    downloadURL(url, `CMF_FINAL_${safeName(state.keyword)}.png`);
+    downloadURL(await composeFinal(), `CMF_FINAL_${safeName(state.keyword)}.png`);
     setStatus("최종 컨셉 보드를 저장했습니다.", "ok");
   } catch (e) { setStatus("보드를 만들지 못했습니다: " + e.message, "warn"); }
 });
@@ -1351,19 +1208,6 @@ els.finalJson.addEventListener("click", () => {
   setStatus("사양서 텍스트를 저장했습니다.", "ok");
 });
 
-els.keySave.addEventListener("click", () => {
-  const k = els.apiKey.value.trim();
-  if (!k) { setStatus("API 키를 입력해 주세요.", "warn"); return; }
-  try { localStorage.setItem(KEYSTORE, k); setStatus("API 키를 이 브라우저에 저장했습니다.", "ok"); }
-  catch { setStatus("키를 저장하지 못했습니다.", "warn"); }
-});
-
-els.keyClear.addEventListener("click", () => {
-  localStorage.removeItem(KEYSTORE);
-  els.apiKey.value = "";
-  setStatus("저장된 API 키를 삭제했습니다.", "ok");
-});
-
 els.keyTest.addEventListener("click", async () => {
   if (!els.apiKey.value.trim()) { setStatus("API 키를 입력해 주세요.", "warn"); return; }
   els.keyTest.disabled = true;
@@ -1373,7 +1217,7 @@ els.keyTest.addEventListener("click", async () => {
       contents: [{ role: "user", parts: [{ text: 'JSON만 출력: {"ok":true}' }] }],
       generationConfig: { responseMimeType: "application/json" }
     }, { timeout: 30000 });
-    setStatus(`텍스트 모델(${TEXT_MODEL}) 연결됨. 이미지 모델(${IMAGE_MODEL})은 첫 생성 때 확인됩니다.`, "ok");
+    setStatus(`텍스트 모델(${TEXT_MODEL}) 연결됨. 이미지 모델(${IMAGE_MODEL})은 첫 보드 생성 때 확인됩니다.`, "ok");
   } catch (e) {
     setStatus("연결 실패: " + e.message, "warn");
   } finally { els.keyTest.disabled = false; }
@@ -1383,21 +1227,21 @@ els.saveBtn.addEventListener("click", () => { if (!busy) exportProject(); });
 els.loadBtn.addEventListener("click", () => { if (!busy) els.file.click(); });
 els.file.addEventListener("change", async e => {
   const f = e.target.files && e.target.files[0];
-  e.target.value = "";                       // 같은 파일 재선택 허용
+  e.target.value = "";
   if (f) await importProject(f);
 });
 
 els.resetBtn.addEventListener("click", async () => {
   if (busy) return;
-  if (!confirm("현재 프로젝트를 초기화할까요? 생성한 이미지도 삭제됩니다. API 키는 유지됩니다.")) return;
+  if (!confirm("현재 프로젝트를 초기화할까요? 생성한 이미지보드도 삭제됩니다.")) return;
   genToken++;
   state = blankState();
-  memImg.clear();
-  Object.keys(imgStatus).forEach(k => delete imgStatus[k]);
-  await imgClear();
+  memBoard.clear();
+  Object.keys(boardStatus).forEach(k => delete boardStatus[k]);
+  await idbClear();
   els.keyword.value = "";
   try { localStorage.removeItem(STORE); } catch {}
-  cardsSignature = "";
+  boardRendered = "";
   render();
   setStatus("새 프로젝트를 시작할 수 있습니다.");
 });
@@ -1408,6 +1252,9 @@ els.keyword.addEventListener("input", () => {
   clearTimeout(kwTimer);
   kwTimer = setTimeout(() => { saveLocal(); render(); }, 400);
 });
+
+/* API 키는 어떤 경로로도 저장하지 않습니다 */
+window.addEventListener("pagehide", () => { els.apiKey.value = ""; });
 
 /* ---------------------------------------------------------------- init */
 els.chips.innerHTML = examples.map((x, i) => `<button type="button" data-chip="${i}">${esc(x)}</button>`).join("");
@@ -1420,29 +1267,28 @@ els.chips.addEventListener("click", e => {
   render();
 });
 
-els.apiKey.value = localStorage.getItem(KEYSTORE) || "";
+try { localStorage.removeItem(LEGACY_KEYSTORE); } catch {}   // 이전 버전이 저장했던 키 제거
+els.apiKey.value = "";
+
 try {
   const saved = JSON.parse(localStorage.getItem(STORE) || "null");
   if (saved) state = sanitizeState(saved);
 } catch { state = blankState(); }
 els.keyword.value = state.keyword;
 
+render();
+
 (async () => {
-  // 저장된 결과 중 이미지가 실제로 남아 있는지 확인
+  let missing = 0;
   for (const s of steps) {
     const r = state.results[s.key];
-    if (!r) continue;
-    for (let i = 0; i < r.options.length; i++) {
-      if (!r.options[i].hasImage) continue;
-      const d = await getImage(imgKey(s.key, i));
-      if (!d) r.options[i].hasImage = false;
-    }
+    if (!r || !r.hasBoard) continue;
+    const d = await getBoard(s.key);
+    if (!d) { r.hasBoard = false; missing++; }
   }
-  cardsSignature = "";
-  render();
+  if (missing) { boardRendered = ""; render(); }
 })();
 
-render();
 })();
 </script>
 </body>

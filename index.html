@@ -5,45 +5,1444 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Emotional CMF Design</title>
 <style>
-:root{--ink:#17201d;--muted:#73807a;--line:#dfe5e1;--paper:#f6f7f4;--mint:#9ff3cf;--deep:#246f5d}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;font-size:16px}button,input,textarea{font:inherit;color:inherit}button{cursor:pointer}.top{height:76px;padding:0 4vw;display:flex;align-items:center;justify-content:space-between;background:#fffffff2;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:9;backdrop-filter:blur(12px)}.brand{display:flex;align-items:center;gap:12px}.mark{width:40px;height:40px;border:1px solid #aab9b1;border-radius:50%;display:grid;place-content:center;gap:3px}.mark i{display:block;width:18px;height:3px;background:var(--ink);border-radius:10px}.mark i:nth-child(2){width:12px;background:var(--deep)}.brand b{display:block;font-size:14px;letter-spacing:.12em}.brand small{font-size:8px;letter-spacing:.18em;color:var(--muted)}.actions{display:flex;gap:7px}.actions button,.download{min-height:40px;padding:0 13px;border:1px solid var(--line);border-radius:9px;background:#fff;font-size:12px;font-weight:700}.hero{min-height:320px;padding:70px 6vw 54px;background:radial-gradient(circle at 82% 18%,#9ff3cf70,transparent 25%),linear-gradient(116deg,#12211d 0 55%,#20372f);color:#fff;display:flex;align-items:flex-end;justify-content:space-between;gap:35px}.hero .copy{max-width:780px}.hero .eyebrow{font-size:11px;letter-spacing:.2em;color:var(--mint);font-weight:800}.hero h1{font-size:clamp(38px,5vw,68px);line-height:1.12;letter-spacing:-.055em;font-weight:350;margin:18px 0}.hero h1 em{font-style:normal;color:var(--mint);font-weight:800}.hero .desc{color:#c1cec8;line-height:1.7;max-width:650px}.progress{width:240px;padding:18px;border:1px solid #ffffff25;border-radius:14px;background:#ffffff10}.progress div:first-child{display:flex;justify-content:space-between;align-items:baseline}.progress span{font-size:9px;letter-spacing:.15em;color:#bdcac4}.progress b{font-size:22px;color:var(--mint)}.track{height:4px;background:#ffffff20;margin:13px 0 9px;border-radius:9px;overflow:hidden}.track i{height:100%;display:block;background:var(--mint);width:0;transition:.3s}.progress small{font-size:10px;color:#a7b6af}.steps{display:grid;grid-template-columns:repeat(6,1fr);background:#fff;padding:0 4vw;border-bottom:1px solid var(--line)}.steps button{min-height:86px;border:0;border-right:1px solid #edf0ee;background:#fff;display:flex;gap:11px;align-items:center;text-align:left;padding:12px;position:relative}.steps button:disabled{opacity:.35;cursor:not-allowed}.steps button.active{background:#f4fff8}.steps button.active:after{content:"";position:absolute;bottom:0;left:15%;right:15%;height:3px;background:var(--deep)}.num{width:31px;height:31px;border:1px solid #ccd6d1;border-radius:50%;display:grid;place-items:center;font-size:10px;font-weight:800}.steps .active .num,.steps .done .num{background:var(--mint);border-color:var(--mint)}.steps strong{display:block;font-size:12px}.steps small{display:block;font-size:9px;color:#88938e;margin-top:3px}.shell{width:min(1500px,94vw);margin:36px auto 70px;display:grid;grid-template-columns:320px minmax(0,1fr);gap:26px;align-items:start}.panel,.result{background:#fff;border:1px solid var(--line);border-radius:17px;box-shadow:0 15px 38px #14251f0c}.panel{padding:24px;position:sticky;top:96px}.current{display:flex;gap:15px;align-items:center;padding-bottom:20px;border-bottom:1px solid var(--line)}.current>span{font-size:32px;color:var(--deep);font-weight:850}.current small,label{font-size:9px;letter-spacing:.13em;color:#7d8983;font-weight:800}.current h2{font-size:19px;margin:4px 0 0}.current p{font-size:10px;color:#87928d;margin:2px 0}.field{margin-top:20px}.field label{display:block;margin-bottom:8px}.field input,.field textarea{width:100%;border:1px solid #ced8d3;border-radius:9px;background:#fbfcfb;outline:0}.field input{height:43px;padding:0 11px}.field textarea{min-height:84px;padding:11px;resize:vertical;line-height:1.5}.field input:focus,.field textarea:focus{border-color:#5a9a85;box-shadow:0 0 0 3px #5a9a851d}.apiBtns{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:7px}.apiBtns button{height:34px;border:1px solid #ccd7d1;border-radius:7px;background:#fff;font-size:10px;font-weight:800}.apiBtns button:last-child{background:#1d342d;color:#fff}.models{font-size:9px;color:#87928d;line-height:1.6;margin:8px 1px}.chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}.chips button{border:1px solid #dce3df;background:#f8faf8;border-radius:20px;padding:6px 8px;font-size:9px}.generate{width:100%;height:50px;margin-top:20px;border:0;border-radius:10px;background:var(--mint);color:#14372e;font-size:12px;font-weight:850}.generate:disabled{opacity:.55}.status{margin-top:10px;padding:9px 10px;background:#f6f8f6;border-left:3px solid #becdc5;color:#68756f;font-size:10px;line-height:1.5}.result{padding:29px;min-height:620px}.resultHead{display:flex;align-items:flex-end;justify-content:space-between;padding-bottom:18px;border-bottom:1px solid var(--line)}.resultHead p{font-size:9px;letter-spacing:.15em;color:#87928d;font-weight:800;margin:0 0 6px}.resultHead h2{font-size:25px;margin:0}.resultHead h2 span{font-size:13px;color:#829089;font-weight:450}.empty{min-height:500px;display:grid;place-content:center;text-align:center;color:#526059}.empty .orb{width:105px;height:105px;margin:auto;border-radius:48% 52% 62% 38%;background:linear-gradient(135deg,#fff,#9ff3cfc9);border:1px solid #70a89155;box-shadow:22px 25px 0 -8px #d7f59a77}.empty b{display:block;margin-top:25px}.empty small{display:block;color:#929e98;line-height:1.6;margin-top:8px}.board{margin-top:24px;aspect-ratio:16/9;border:1px solid #e1e7e3;border-radius:10px;background:#eef2ef;overflow:hidden;display:grid;place-items:center}.board img{width:100%;height:100%;object-fit:contain;background:#fff}.board .missing{text-align:center;color:#76847d;font-size:12px}.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:16px}.opts button{min-height:105px;border:1px solid #dce3df;border-radius:10px;background:#fff;padding:13px;display:grid;grid-template-columns:28px 1fr;gap:9px;text-align:left}.opts button:hover{border-color:#90c4ad;transform:translateY(-1px)}.opts button.selected{border:2px solid var(--deep);background:#f2fff7;padding:12px}.onum{width:27px;height:27px;border-radius:50%;display:grid;place-items:center;background:#edf2ef;font-size:9px;font-weight:800}.selected .onum{background:var(--mint)}.opts strong{display:block;font-size:12px;margin-top:3px}.opts small{display:block;color:#74817a;font-size:10px;line-height:1.5;margin-top:5px}.opts i{display:block;color:#4d7b68;font-size:8px;font-style:normal;margin-top:6px}.stageActions{display:flex;justify-content:flex-end;gap:8px;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}.stageActions button{min-height:44px;border-radius:9px;padding:0 17px;font-size:11px;font-weight:800}.back{border:1px solid #d4ddd8;background:#fff}.next{border:1px solid #172b25;background:#172b25;color:#fff}.next:disabled{opacity:.35}.hide{display:none!important}.spinner{display:inline-block;width:15px;height:15px;border:2px solid #1c4b3d35;border-top-color:#1c4b3d;border-radius:50%;animation:spin .8s linear infinite;vertical-align:-3px;margin-right:7px}@keyframes spin{to{transform:rotate(360deg)}}footer{border-top:1px solid var(--line);padding:24px 4vw;display:flex;justify-content:space-between;color:#8b9690;font-size:9px;letter-spacing:.1em}
-@media(max-width:1050px){.steps{grid-template-columns:repeat(3,1fr)}.shell{grid-template-columns:285px minmax(0,1fr)}.opts{grid-template-columns:1fr 1fr}}
-@media(max-width:720px){.top{height:66px;padding:0 14px}.brand b{font-size:11px}.actions button{width:38px;padding:0;font-size:0}.hero{display:block;padding:50px 20px 38px}.hero h1{font-size:40px}.progress{width:100%;margin-top:27px}.steps{grid-template-columns:repeat(6,122px);overflow-x:auto;padding:0}.steps button{min-height:73px}.shell{display:block;width:auto;margin:17px 11px 50px}.panel{position:static;padding:19px}.result{margin-top:14px;padding:18px;min-height:430px}.empty{min-height:360px}.opts{grid-template-columns:1fr}.download{width:40px;font-size:0;padding:0}footer{display:block;text-align:center}footer span{display:block;margin-bottom:7px}}
+:root{
+  --ink:#141d1a;
+  --body:#3c4a44;
+  --muted:#5d6b65;
+  --line:#dde4e0;
+  --line-soft:#eaeeec;
+  --paper:#f6f7f4;
+  --mint:#9ff3cf;
+  --deep:#1c5c4b;
+  --deep-ink:#123c31;
+  --warn:#8a5a1f;
+  --warn-bg:#fdf6ea;
+  --ok:#1c5c4b;
+  --radius:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo",system-ui,Arial,sans-serif;font-size:16px;line-height:1.55;-webkit-text-size-adjust:100%}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer}
+button:disabled{cursor:not-allowed}
+:focus-visible{outline:2px solid var(--deep);outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* header */
+.top{min-height:72px;padding:10px 4vw;display:flex;align-items:center;justify-content:space-between;gap:14px;background:#fffffff2;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;backdrop-filter:blur(12px)}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.mark{width:40px;height:40px;border:1px solid #a9b8b0;border-radius:50%;display:grid;place-content:center;gap:3px;flex:none}
+.mark i{display:block;width:18px;height:3px;background:var(--ink);border-radius:10px}
+.mark i:nth-child(2){width:12px;background:var(--deep)}
+.brand b{display:block;font-size:14px;letter-spacing:.12em}
+.brand small{display:block;font-size:11px;letter-spacing:.16em;color:var(--muted)}
+.actions{display:flex;gap:6px;flex:none}
+.actions button{min-height:40px;padding:0 12px;border:1px solid var(--line);border-radius:9px;background:#fff;font-size:13px;font-weight:700;display:inline-flex;align-items:center;gap:6px;color:var(--body)}
+.actions button:hover{border-color:#a8c6b9}
+.actions svg{width:16px;height:16px;flex:none}
+
+/* hero */
+.hero{padding:64px 6vw 50px;background:radial-gradient(circle at 82% 18%,#9ff3cf59,transparent 26%),linear-gradient(116deg,#12211d 0 55%,#20372f);color:#fff;display:flex;align-items:flex-end;justify-content:space-between;gap:36px;flex-wrap:wrap}
+.hero .copy{max-width:760px;min-width:280px}
+.eyebrow{font-size:12px;letter-spacing:.2em;color:var(--mint);font-weight:800}
+.hero h1{font-size:clamp(34px,5vw,64px);line-height:1.12;letter-spacing:-.05em;font-weight:350;margin:16px 0}
+.hero h1 em{font-style:normal;color:var(--mint);font-weight:800}
+.hero .desc{color:#cfdad5;line-height:1.7;max-width:640px;font-size:15px}
+.progress{width:260px;padding:18px;border:1px solid #ffffff2e;border-radius:var(--radius);background:#ffffff12}
+.progress .row{display:flex;justify-content:space-between;align-items:baseline}
+.progress span{font-size:12px;letter-spacing:.14em;color:#cad6d1}
+.progress b{font-size:24px;color:var(--mint)}
+.track{height:4px;background:#ffffff26;margin:13px 0 9px;border-radius:9px;overflow:hidden}
+.track i{height:100%;display:block;background:var(--mint);width:0;transition:width .35s ease}
+.progress small{font-size:12px;color:#bcc9c3}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(6,1fr);background:#fff;padding:0 4vw;border-bottom:1px solid var(--line);position:relative;z-index:5}
+.steps button{min-height:84px;border:0;border-right:1px solid var(--line-soft);background:#fff;display:flex;gap:11px;align-items:center;text-align:left;padding:12px;position:relative;color:var(--ink)}
+.steps button:disabled{opacity:.4}
+.steps button.active{background:#f2fdf7}
+.steps button.active:after{content:"";position:absolute;bottom:0;left:14%;right:14%;height:3px;background:var(--deep)}
+.num{width:30px;height:30px;border:1px solid #c3d0ca;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:800;flex:none}
+.steps .active .num{background:var(--mint);border-color:var(--mint)}
+.steps .done .num{background:var(--mint);border-color:var(--mint)}
+.steps .stale .num{background:#ffe9c4;border-color:#e6c68a}
+.steps strong{display:block;font-size:13px}
+.steps small{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+
+/* layout */
+.shell{width:min(1500px,94vw);margin:34px auto 70px;display:grid;grid-template-columns:340px minmax(0,1fr);gap:26px;align-items:start}
+.panel,.result,.final{background:#fff;border:1px solid var(--line);border-radius:17px;box-shadow:0 14px 36px #14251f0d}
+.panel{padding:24px;position:sticky;top:94px}
+.current{display:flex;gap:15px;align-items:center;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.current>span{font-size:32px;color:var(--deep);font-weight:800;line-height:1}
+.current h2{font-size:19px;margin:3px 0 0}
+.current p{font-size:12px;color:var(--muted);margin:2px 0 0}
+.lbl{font-size:12px;letter-spacing:.12em;color:var(--muted);font-weight:800;display:block;margin-bottom:8px}
+.field{margin-top:20px}
+.field input,.field textarea{width:100%;border:1px solid #c6d1cc;border-radius:9px;background:#fbfcfb;outline:0;color:var(--ink)}
+.field input{height:44px;padding:0 11px}
+.field textarea{min-height:88px;padding:11px;resize:vertical;line-height:1.5}
+.field input:focus,.field textarea:focus{border-color:#3f7d69;box-shadow:0 0 0 3px #3f7d6926}
+.apiBtns{display:grid;grid-template-columns:1fr 1fr 44px;gap:6px;margin-top:7px}
+.apiBtns button{height:36px;border:1px solid #c6d1cc;border-radius:7px;background:#fff;font-size:12px;font-weight:700;color:var(--body)}
+.apiBtns button.primary{background:var(--deep-ink);color:#fff;border-color:var(--deep-ink)}
+.note{font-size:12px;color:var(--muted);line-height:1.6;margin:9px 1px 0}
+.note b{color:var(--body)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.chips button{border:1px solid var(--line);background:#f8faf8;border-radius:20px;padding:7px 10px;font-size:12px;color:var(--body)}
+.chips button:hover{border-color:#a8c6b9}
+.generate{width:100%;height:52px;margin-top:20px;border:0;border-radius:10px;background:var(--mint);color:#0f3529;font-size:14px;font-weight:800}
+.generate:disabled{opacity:.5}
+.cancel{width:100%;height:40px;margin-top:8px;border:1px solid #c6d1cc;border-radius:10px;background:#fff;font-size:13px;font-weight:700;color:var(--body)}
+.status{margin-top:12px;padding:10px 12px;background:#f4f7f5;border-left:3px solid #b3c5bc;color:var(--body);font-size:13px;line-height:1.55;border-radius:0 8px 8px 0}
+.status.warn{background:var(--warn-bg);border-left-color:#dcae63;color:var(--warn)}
+.status.ok{background:#f0faf5;border-left-color:var(--deep);color:var(--deep)}
+
+/* result */
+.result{padding:28px;min-height:600px}
+.resultHead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;padding-bottom:18px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.resultHead .kicker{font-size:12px;letter-spacing:.15em;color:var(--muted);font-weight:800;margin:0 0 6px}
+.resultHead h2{font-size:26px;margin:0;font-weight:600;letter-spacing:-.02em}
+.resultHead h2 .en{font-size:14px;color:var(--muted);font-weight:450;margin-left:6px}
+.headBtn{min-height:40px;padding:0 14px;border:1px solid var(--line);border-radius:9px;background:#fff;font-size:13px;font-weight:700;color:var(--body)}
+.headBtn:hover{border-color:#a8c6b9}
+.banner{margin-top:18px;padding:12px 14px;border-radius:10px;font-size:13px;line-height:1.6;display:flex;gap:10px;align-items:flex-start}
+.banner.warn{background:var(--warn-bg);border:1px solid #ecd9b4;color:var(--warn)}
+.banner.info{background:#f2f7f4;border:1px solid var(--line);color:var(--body)}
+.banner b{font-weight:800}
+
+.empty{min-height:460px;display:grid;place-content:center;text-align:center;color:var(--body);padding:20px}
+.empty .orb{width:106px;height:106px;margin:auto;border-radius:48% 52% 62% 38%;background:linear-gradient(135deg,#fff,#9ff3cfcc);border:1px solid #6ea88f5c;box-shadow:22px 25px 0 -8px #d7f59a7a}
+.empty b{display:block;margin-top:26px;font-size:16px}
+.empty small{display:block;color:var(--muted);line-height:1.7;margin-top:8px;font-size:13px}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+.card{border:1px solid var(--line);border-radius:12px;background:#fff;padding:0;overflow:hidden;text-align:left;display:flex;flex-direction:column;transition:border-color .15s,transform .15s}
+.card:hover{border-color:#8fbfa9;transform:translateY(-1px)}
+.card.selected{border:2px solid var(--deep);background:#f5fdf9}
+.card .fig{aspect-ratio:4/3;background:#eef2ef;display:grid;place-items:center;overflow:hidden;position:relative}
+.card .fig img{width:100%;height:100%;object-fit:cover;display:block}
+.card .fig .ph{font-size:12px;color:var(--muted);text-align:center;padding:12px;line-height:1.6}
+.card .body{padding:14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card .top-row{display:flex;align-items:center;gap:8px}
+.onum{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:#eef2ef;font-size:12px;font-weight:800;flex:none}
+.card.selected .onum{background:var(--mint)}
+.card strong{font-size:15px;font-weight:700;line-height:1.35}
+.card .desc{display:block;color:var(--body);font-size:13px;line-height:1.6}
+.card .cues{color:var(--deep);font-size:12px;font-weight:700;letter-spacing:.01em}
+.retry{align-self:flex-start;margin-top:2px;border:1px solid var(--line);background:#fff;border-radius:7px;padding:6px 10px;font-size:12px;font-weight:700;color:var(--body)}
+.spinner{display:inline-block;width:16px;height:16px;border:2px solid #1c4b3d38;border-top-color:#1c4b3d;border-radius:50%;animation:spin .8s linear infinite;vertical-align:-3px;margin-right:7px}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important}html{scroll-behavior:auto}}
+
+.stageActions{display:flex;justify-content:flex-end;gap:8px;margin-top:22px;padding-top:18px;border-top:1px solid var(--line);flex-wrap:wrap}
+.stageActions button{min-height:46px;border-radius:9px;padding:0 18px;font-size:14px;font-weight:700}
+.back{border:1px solid #cbd6d1;background:#fff;color:var(--body)}
+.next{border:1px solid #14251f;background:#14251f;color:#fff}
+.next:disabled{opacity:.4}
+
+/* final */
+.final{margin-top:26px;padding:28px}
+.final h2{font-size:22px;margin:0 0 4px;font-weight:600}
+.final .sub{color:var(--muted);font-size:13px;margin:0 0 20px}
+.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.sum{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.sum .fig{aspect-ratio:4/3;background:#eef2ef;overflow:hidden}
+.sum .fig img{width:100%;height:100%;object-fit:cover;display:block}
+.sum .body{padding:13px}
+.sum .step{font-size:12px;letter-spacing:.12em;color:var(--muted);font-weight:800}
+.sum strong{display:block;font-size:15px;margin-top:4px}
+.sum p{margin:5px 0 0;font-size:13px;color:var(--body);line-height:1.6}
+.finalActions{display:flex;gap:8px;margin-top:20px;flex-wrap:wrap}
+.finalActions button{min-height:46px;padding:0 18px;border-radius:9px;font-size:14px;font-weight:700;border:1px solid #14251f;background:#14251f;color:#fff}
+.finalActions button.ghost{background:#fff;color:var(--body);border-color:#cbd6d1}
+.hide{display:none!important}
+
+footer{border-top:1px solid var(--line);padding:22px 4vw;display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:12px;letter-spacing:.06em;flex-wrap:wrap}
+
+@media(max-width:1100px){
+  .steps{grid-template-columns:repeat(3,1fr)}
+  .shell{grid-template-columns:300px minmax(0,1fr)}
+  .cards,.summary{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .top{padding:10px 14px}
+  .actions button{padding:0 10px}
+  .actions .txt{display:none}
+  .hero{padding:44px 20px 34px}
+  .progress{width:100%}
+  .steps{display:flex;overflow-x:auto;padding:0;scroll-snap-type:x proximity}
+  .steps button{min-width:150px;flex:none;scroll-snap-align:start}
+  .shell{display:block;width:auto;margin:16px 12px 50px}
+  .panel{position:static;padding:20px}
+  .result{margin-top:14px;padding:18px;min-height:auto}
+  .final{padding:20px}
+  .cards,.summary{grid-template-columns:1fr}
+  .empty{min-height:320px}
+  .stageActions button,.finalActions button{flex:1}
+}
 </style>
 </head>
 <body>
-<header class="top"><div class="brand"><span class="mark"><i></i><i></i><i></i></span><span><b>EMOTIONAL CMF</b><small>DESIGN DIRECTION STUDIO</small></span></div><div class="actions"><button id="loadBtn">불러오기</button><button id="saveBtn">프로젝트 저장</button><button id="resetBtn" title="초기화">초기화</button><input id="file" type="file" accept=".json,application/json" hidden></div></header>
-<section class="hero"><div class="copy"><div class="eyebrow">FROM EMOTION TO TANGIBLE EXPERIENCE</div><h1>느낌을 <em>만질 수 있는 방향</em>으로</h1><div class="desc">감성 키워드를 해석하고, 지각과 물성으로 전환해 실제 소재·가공과 CMF 샘플까지 단계적으로 설계합니다.</div></div><div class="progress"><div><span>PROJECT PROGRESS</span><b id="progressText">0%</b></div><div class="track"><i id="progressBar"></i></div><small id="progressSmall">0 / 6 directions selected</small></div></section>
-<nav class="steps" id="steps"></nav>
-<main class="shell"><aside class="panel"><div class="current"><span id="stepNo">01</span><div><small>CURRENT STEP</small><h2 id="stepLabel">감성 해석</h2><p id="stepEn">Emotion</p></div></div>
-<div class="field"><label>GEMINI API KEY</label><input id="apiKey" type="password" placeholder="API 키를 입력하세요" autocomplete="off"><div class="apiBtns"><button id="keySave">브라우저에 저장</button><button id="keyTest">연결 확인</button></div><p class="models">텍스트 <b>gemini-flash-latest</b><br>이미지 <b>gemini-3.1-flash-image</b></p></div>
-<div class="field"><label>감성 키워드</label><textarea id="keyword" placeholder="예: 차분하고 미래적이며 세련되다"></textarea><div class="chips" id="chips"></div></div>
-<button class="generate" id="generate">감성 해석 이미지보드 생성</button><div class="status" id="status" aria-live="polite">감성 키워드를 입력해 시작하세요.</div></aside>
-<section class="result"><div class="resultHead"><div><p id="stageCount">01 / 06</p><h2><span id="resultLabel">감성 해석</span> <span id="resultEn">Emotion</span></h2></div><button class="download hide" id="download">보드 다운로드</button></div>
-<div class="empty" id="empty"><div><div class="orb"></div><b>감성의 방향을 시각적으로 발견하세요</b><small>왼쪽에서 키워드를 입력하고 이미지보드를 생성하면<br>선택 가능한 방향이 이곳에 나타납니다.</small></div></div>
-<div id="output" class="hide"><div class="board" id="board"></div><div class="opts" id="options"></div><div class="stageActions"><button class="back hide" id="back">이전 단계</button><button class="next" id="next" disabled>선택하고 다음 단계로</button></div></div></section></main>
-<footer><span>EMOTIONAL CMF DESIGN</span><span>All project data and API keys stay in your browser.</span></footer>
+
+<header class="top">
+  <div class="brand">
+    <span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span><b>EMOTIONAL CMF</b><small>DESIGN DIRECTION STUDIO</small></span>
+  </div>
+  <div class="actions">
+    <button id="loadBtn" type="button" aria-label="프로젝트 불러오기">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 7h6l2 2h10v10H3z"/></svg><span class="txt">불러오기</span>
+    </button>
+    <button id="saveBtn" type="button" aria-label="프로젝트 저장">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v3h16v-3"/></svg><span class="txt">저장</span>
+    </button>
+    <button id="resetBtn" type="button" aria-label="프로젝트 초기화">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12a8 8 0 1 1 2.5 5.8M4 12V7m0 5h5"/></svg><span class="txt">초기화</span>
+    </button>
+    <input id="file" type="file" accept=".json,application/json" hidden>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="copy">
+    <div class="eyebrow">FROM EMOTION TO TANGIBLE EXPERIENCE</div>
+    <h1>느낌을 <em>만질 수 있는 방향</em>으로</h1>
+    <p class="desc">감성 키워드를 해석하고, 지각과 물성으로 전환해 실제 소재·가공과 CMF 샘플까지 여섯 단계로 설계합니다. 각 단계에서 고른 방향이 다음 단계의 입력이 됩니다.</p>
+  </div>
+  <div class="progress">
+    <div class="row"><span>PROJECT PROGRESS</span><b id="progressText">0%</b></div>
+    <div class="track"><i id="progressBar"></i></div>
+    <small id="progressSmall">6단계 중 0단계 확정</small>
+  </div>
+</section>
+
+<nav class="steps" id="steps" aria-label="설계 단계"></nav>
+
+<main class="shell">
+  <aside class="panel">
+    <div class="current">
+      <span id="stepNo">01</span>
+      <div>
+        <span class="lbl" style="margin-bottom:2px">CURRENT STEP</span>
+        <h2 id="stepLabel">감성 해석</h2>
+        <p id="stepEn">Emotion</p>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="lbl" for="apiKey">GEMINI API KEY</label>
+      <input id="apiKey" type="password" placeholder="API 키를 입력하세요" autocomplete="off" spellcheck="false">
+      <div class="apiBtns">
+        <button id="keySave" type="button">브라우저에 저장</button>
+        <button id="keyTest" type="button" class="primary">연결 확인</button>
+        <button id="keyClear" type="button" title="저장된 키 삭제" aria-label="저장된 키 삭제">✕</button>
+      </div>
+      <p class="note">텍스트 <b>gemini-flash-latest</b> · 이미지 <b>gemini-3.1-flash-image</b><br>키를 저장하면 이 브라우저에 평문으로 남습니다. 공용 PC에서는 저장하지 마세요.</p>
+    </div>
+
+    <div class="field">
+      <label class="lbl" for="keyword">감성 키워드</label>
+      <textarea id="keyword" placeholder="예: 차분하고 미래적이며 세련되다"></textarea>
+      <div class="chips" id="chips"></div>
+    </div>
+
+    <button class="generate" id="generate" type="button">감성 해석 방향 생성</button>
+    <button class="cancel hide" id="cancelBtn" type="button">생성 중단</button>
+    <div class="status" id="status" role="status" aria-live="polite">감성 키워드를 입력해 시작하세요.</div>
+  </aside>
+
+  <div>
+    <section class="result" aria-labelledby="resultLabel">
+      <div class="resultHead">
+        <div>
+          <p class="kicker" id="stageCount">01 / 06</p>
+          <h2><span id="resultLabel">감성 해석</span><span class="en" id="resultEn">Emotion</span></h2>
+        </div>
+        <button class="headBtn hide" id="download" type="button">보드 PNG 저장</button>
+      </div>
+
+      <div class="banner warn hide" id="staleBanner"></div>
+      <div class="banner warn hide" id="fallbackBanner"></div>
+
+      <div class="empty" id="empty">
+        <div>
+          <div class="orb" aria-hidden="true"></div>
+          <b>감성의 방향을 시각적으로 발견하세요</b>
+          <small>왼쪽에서 키워드를 입력하고 방향을 생성하면<br>선택 가능한 카드가 이곳에 나타납니다.</small>
+        </div>
+      </div>
+
+      <div id="output" class="hide">
+        <div class="cards" id="cards"></div>
+        <div class="stageActions">
+          <button class="back hide" id="back" type="button">이전 단계</button>
+          <button class="next" id="next" type="button" disabled>선택하고 다음 단계로</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="final hide" id="final" aria-labelledby="finalTitle">
+      <h2 id="finalTitle">최종 컨셉 보드</h2>
+      <p class="sub" id="finalSub"></p>
+      <div class="summary" id="summary"></div>
+      <div class="finalActions">
+        <button id="finalPng" type="button">컨셉 보드 PNG 저장</button>
+        <button id="finalJson" type="button" class="ghost">사양서 텍스트 저장</button>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <span>EMOTIONAL CMF DESIGN</span>
+  <span>프로젝트와 API 키는 이 브라우저에만 저장됩니다.</span>
+</footer>
+
 <script>
-(()=>{"use strict";
-const TEXT_MODEL="gemini-flash-latest",IMAGE_MODEL="gemini-3.1-flash-image",STORE="emotional-cmf-design-project-v4",KEYSTORE="emotional-cmf-gemini-api-key";
-const steps=[{key:"emotion",label:"감성 해석",en:"Emotion",count:3},{key:"perception",label:"지각",en:"Perception",count:6},{key:"properties",label:"물성",en:"Material Properties",count:6},{key:"inspiration",label:"영감",en:"Inspiration",count:3},{key:"material",label:"소재·가공",en:"Material & Process",count:3},{key:"sample",label:"CMF 샘플",en:"CMF Samples",count:3}];
-const examples=["차분하고 미래적이며 세련되다","가볍고 부드럽고 온화하다","자연스럽고 생명감 있고 투명하다","젊고 활기차고 즐겁고 고급스럽다","어둡고 무겁고 절제되어 있다"];
-const fallback={emotion:[["빛의 여백","부드럽게 퍼지는 빛과 낮은 긴장감으로 해석합니다.",["확산광","반투명","넓은 여백"]],["감춰진 촉감","차분한 표면 안에 섬세한 촉각의 기대를 담습니다.",["미세결","소프트 매트","잔잔한 층"]],["정돈된 밀도","균형 잡힌 구조와 절제된 리듬으로 감성을 응축합니다.",["정렬","고밀도","느린 리듬"]]],perception:[["번지는 경계","윤곽이 부드럽게 풀리며 보입니다."],["낮은 반사","빛이 자극 없이 은은하게 인식됩니다."],["미세한 결","손끝에 섬세한 저항이 느껴집니다."],["겹친 깊이","반투명 층 사이로 깊이가 보입니다."],["완만한 흐름","시선이 끊김 없이 천천히 이동합니다."],["안정된 무게","밀도는 있지만 부담 없이 느껴집니다."]],properties:[["소프트 매트","반사율을 낮춰 표면을 차분하게 만듭니다."],["반투명 레이어","빛이 층을 통과하며 깊이를 형성합니다."],["초미세 텍스처","육안보다 손끝에서 먼저 인식되는 결입니다."],["저채도 그라데이션","색의 전환을 길고 조용하게 연결합니다."],["둥근 엣지","경계의 긴장감을 완만하게 낮춥니다."],["균일한 밀도","구조적 흔들림 없이 안정감을 유지합니다."]],inspiration:[["안개 속의 빛","경계를 지우며 천천히 드러나는 빛에서 영감을 얻습니다."],["물결 아래의 층","겹쳐진 투명도와 느린 흐름을 포착합니다."],["손에 닳은 돌","시간이 만든 둥근 표면과 안정된 촉감을 옮깁니다."]],material:[["반투명 PC · 프로스트","미세 샌딩과 프로스트 코팅으로 확산광을 구현합니다."],["알루미늄 · 비드블라스트","고운 입자와 저광택 아노다이징으로 밀도를 낮춥니다."],["실리콘 · 마이크로 엠보","부드러운 탄성과 초미세 패턴으로 촉각을 강조합니다."]],sample:[["Mist Pearl","웜 화이트 반투명층과 실키 매트 표면의 조합입니다."],["Quiet Graphite","저채도 흑연색과 미세 금속 입자의 절제된 조합입니다."],["Soft Aqua","옅은 아쿠아 그라데이션과 유연한 촉감의 조합입니다."]]};
-const $=id=>document.getElementById(id);let state={keyword:"",stepIndex:0,results:{},updatedAt:""},busy=false;
-function setStatus(s){$("status").textContent=s}function current(){return steps[state.stepIndex]}function saveLocal(){state.keyword=$("keyword").value;state.updatedAt=new Date().toISOString();localStorage.setItem(STORE,JSON.stringify(state))}
-function fallbackOptions(key,count){return fallback[key].slice(0,count).map((x,i)=>({number:String(i+1).padStart(2,"0"),keyword:x[0],description:x[1],cues:x[2]}))}
-function selectedPath(until){return steps.slice(0,until).map(s=>{const r=state.results[s.key],o=r&&r.selected!==undefined?r.options[r.selected]:null;return o?`${s.label}: ${o.keyword} — ${o.description}`:""}).filter(Boolean).join("\n")}
-function textPrompt(){const s=current(),rules={emotion:"서로 중복되지 않는 3가지 감성 해석. 1안은 빛·투명도, 2안은 표면·촉감, 3안은 구조·밀도·리듬 중심. description은 2문장, cues는 물질 단서 3개.",perception:"선택 감성이 눈과 손에 어떻게 인식되는지 6가지. 감정어 대신 보인다·느껴진다·인식된다·만져진다의 언어를 사용하고 시각·촉각을 균형 있게 포함.",properties:"지각 특성을 광택, 투명도, 표면 거칠기, 경도/탄성, 두께/밀도, 형상/리듬의 실제 물성 언어 6가지로 전환.",inspiration:"선택 물성을 구현할 영감 방향 3가지. 자연, 건축/공간, 예술/현상에서 각각 하나씩 도출.",material:"현실적인 소재·가공 조합 3가지. keyword는 ‘소재 · 가공’ 형식, description에는 색·마감·제조 방식 포함.",sample:"최종 CMF 샘플 3가지. 영문 컨셉명과 정확한 색조·소재·광택·촉감·가공 조합."};return`당신은 감성 디자인 및 CMF 전문 디자인 디렉터다.\n입력 감성: ${$("keyword").value.trim()}\n현재 단계: ${s.label} ${s.en}\n이전 선택:\n${selectedPath(state.stepIndex)||"없음"}\n요구사항: ${rules[s.key]}\n반드시 JSON만 출력: {"options":[{"number":"01","keyword":"이름","description":"한국어 설명","cues":["단서1","단서2","단서3"]}]}\n정확히 ${s.count}개.`}
-function boardPrompt(opts){const s=current(),items=opts.map(o=>`${o.number} ${o.keyword}: ${o.description}${o.cues?` / ${o.cues.join(", ")}`:""}`).join("\n");return`Create one premium editorial CMF image board in strict 16:9 landscape. White warm-gray background, clean Swiss/Korean editorial design, generous whitespace, modern typography. Title: "${s.label} ${s.en} | ${$("keyword").value.trim()}". Use exactly ${s.count===6?"3 columns × 2 rows":"3 columns × 1 row"}, equal cards. Each card has number, Korean keyword and concise description in upper area, one distinctive photorealistic material/space/abstract image in lower area as LAST element. No people as protagonists. Absolutely no text, labels, swatches, icons or graphics below or over each representative image. No footer or watermark. Content:\n${items}\nPrior direction:\n${selectedPath(state.stepIndex)||"none"}`}
-async function api(model,prompt,config){const key=$("apiKey").value.trim();const r=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(key)}`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({contents:[{role:"user",parts:[{text:prompt}]}],generationConfig:config})}),data=await r.json();if(!r.ok)throw Error(data?.error?.message||"API 요청에 실패했습니다.");return data}
-function parse(raw){try{const p=JSON.parse(raw.replace(/^```(?:json)?\s*/i,"").replace(/\s*```$/,"")),src=Array.isArray(p)?p:p.options;if(!Array.isArray(src))throw 0;return src.slice(0,current().count).map((o,i)=>({number:String(o.number||i+1).padStart(2,"0"),keyword:String(o.keyword||`방향 ${i+1}`),description:String(o.description||"CMF 방향입니다."),cues:Array.isArray(o.cues)?o.cues.slice(0,3).map(String):undefined}))}catch{return fallbackOptions(current().key,current().count)}}
-async function generate(){if(busy)return;if(!$("keyword").value.trim())return setStatus("먼저 감성 키워드를 입력해 주세요.");if(!$("apiKey").value.trim())return setStatus("먼저 Gemini API 키를 입력해 주세요.");busy=true;$("generate").disabled=true;$("generate").innerHTML='<i class="spinner"></i>생성 중';setStatus(`${current().label}의 내용과 이미지보드 1장을 생성하고 있습니다…`);try{const t=await api(TEXT_MODEL,textPrompt(),{temperature:.72,responseMimeType:"application/json"}),raw=(t.candidates?.[0]?.content?.parts||[]).map(p=>p.text||"").join(""),options=parse(raw);let board;try{const im=await api(IMAGE_MODEL,boardPrompt(options),{responseModalities:["TEXT","IMAGE"]}),part=(im.candidates?.[0]?.content?.parts||[]).find(p=>p.inlineData?.data||p.inline_data?.data),inline=part?.inlineData||part?.inline_data;if(!inline?.data)throw Error("이미지 데이터가 반환되지 않았습니다.");board=`data:${inline.mimeType||inline.mime_type||"image/jpeg"};base64,${inline.data}`;setStatus(`${current().label} 이미지보드가 완성되었습니다. 아래 방향을 선택하세요.`)}catch(e){setStatus(`${e.message} 텍스트 선택지는 사용할 수 있습니다.`)}state.results[current().key]={options,board,selected:undefined};saveLocal();render()}catch(e){setStatus(e.message||"생성 중 오류가 발생했습니다.")}finally{busy=false;$("generate").disabled=false;$("generate").textContent=`${current().label} 다시 생성`}}
-function choose(i){state.results[current().key].selected=i;setStatus(`${state.results[current().key].options[i].number} ${state.results[current().key].options[i].keyword} 방향을 선택했습니다.`);saveLocal();render()}
-function render(){const s=current(),r=state.results[s.key];$("stepNo").textContent=String(state.stepIndex+1).padStart(2,"0");$("stepLabel").textContent=s.label;$("stepEn").textContent=s.en;$("resultLabel").textContent=s.label;$("resultEn").textContent=s.en;$("stageCount").textContent=`${String(state.stepIndex+1).padStart(2,"0")} / 06`;$("generate").textContent=`${s.label} ${r?"다시 생성":"이미지보드 생성"}`;const done=steps.filter(x=>state.results[x.key]?.selected!==undefined).length,p=Math.round(done/6*100);$("progressText").textContent=p+"%";$("progressBar").style.width=p+"%";$("progressSmall").textContent=`${done} / 6 directions selected`;$("steps").innerHTML=steps.map((x,i)=>{const d=state.results[x.key]?.selected!==undefined,u=i===0||state.results[steps[i-1].key]?.selected!==undefined||state.results[x.key];return`<button data-step="${i}" class="${i===state.stepIndex?"active":""} ${d?"done":""}" ${u?"":"disabled"}><span class="num">${d?"✓":String(i+1).padStart(2,"0")}</span><span><strong>${x.label}</strong><small>${x.en}</small></span></button>`}).join("");document.querySelectorAll("[data-step]").forEach(b=>b.onclick=()=>{state.stepIndex=+b.dataset.step;saveLocal();render()});$("empty").classList.toggle("hide",!!r);$("output").classList.toggle("hide",!r);if(!r)return;$("board").innerHTML=r.board?`<img src="${r.board}" alt="${s.label} 이미지보드">`:'<div class="missing">이미지 생성 권한을 확인해 주세요.<br><small>텍스트 선택지는 정상 생성되었습니다.</small></div>';$("download").classList.toggle("hide",!r.board);$("options").innerHTML=r.options.map((o,i)=>`<button data-option="${i}" class="${r.selected===i?"selected":""}"><span class="onum">${r.selected===i?"✓":o.number}</span><span><strong>${o.keyword}</strong><small>${o.description}</small>${o.cues?.length?`<i>${o.cues.join(" · ")}</i>`:""}</span></button>`).join("");document.querySelectorAll("[data-option]").forEach(b=>b.onclick=()=>choose(+b.dataset.option));$("back").classList.toggle("hide",state.stepIndex===0);$("next").disabled=r.selected===undefined;$("next").textContent=state.stepIndex===5?"프로젝트 완료":`선택하고 ${steps[state.stepIndex+1].label}로`}
-function download(data,name,type){const a=document.createElement("a");if(data.startsWith?.("data:")){a.href=data}else{const u=URL.createObjectURL(new Blob([data],{type}));a.href=u;setTimeout(()=>URL.revokeObjectURL(u),1000)}a.download=name;a.click()}
-$("generate").onclick=generate;$("keySave").onclick=()=>{if(!$("apiKey").value.trim())return setStatus("API 키를 입력해 주세요.");localStorage.setItem(KEYSTORE,$("apiKey").value.trim());setStatus("API 키가 이 브라우저에 저장되었습니다.")};$("keyTest").onclick=async()=>{if(!$("apiKey").value.trim())return setStatus("API 키를 입력해 주세요.");setStatus("연결을 확인하고 있습니다…");try{await api(TEXT_MODEL,'JSON만 출력: {"ok":true}',{responseMimeType:"application/json"});localStorage.setItem(KEYSTORE,$("apiKey").value.trim());setStatus(`연결되었습니다. 텍스트 ${TEXT_MODEL} · 이미지 ${IMAGE_MODEL}`)}catch(e){setStatus(e.message)}};
-$("next").onclick=()=>{const r=state.results[current().key];if(r?.selected===undefined)return;if(state.stepIndex<5){state.stepIndex++;setStatus(`${current().label} 단계입니다. 이전 선택을 반영해 보드를 생성하세요.`);saveLocal();render();scrollTo({top:320,behavior:"smooth"})}else setStatus("6단계 CMF 방향 설계가 완료되었습니다.")};$("back").onclick=()=>{if(state.stepIndex>0){state.stepIndex--;saveLocal();render()}};$("download").onclick=()=>{const r=state.results[current().key];if(r?.board)download(r.board,`${String(state.stepIndex+1).padStart(2,"0")}_${current().label}_${$("keyword").value}.jpeg`,"image/jpeg")};
-$("saveBtn").onclick=()=>{saveLocal();download(JSON.stringify(state,null,2),`CMF_${$("keyword").value.trim()||"project"}.json`,"application/json")};$("loadBtn").onclick=()=>$("file").click();$("file").onchange=e=>{const f=e.target.files[0];if(!f)return;const reader=new FileReader();reader.onload=()=>{try{state=JSON.parse(reader.result);$("keyword").value=state.keyword||"";saveLocal();render();setStatus("프로젝트를 불러왔습니다.")}catch{setStatus("올바른 프로젝트 파일이 아닙니다.")}};reader.readAsText(f)};$("resetBtn").onclick=()=>{if(confirm("현재 프로젝트를 초기화할까요? API 키는 유지됩니다.")){state={keyword:"",stepIndex:0,results:{},updatedAt:""};$("keyword").value="";localStorage.removeItem(STORE);render();setStatus("새 프로젝트를 시작할 수 있습니다.")}};$("keyword").oninput=()=>{state.keyword=$("keyword").value;clearTimeout(window.saveTimer);window.saveTimer=setTimeout(saveLocal,300)};
-$("chips").innerHTML=examples.map(x=>`<button>${x}</button>`).join("");$("chips").querySelectorAll("button").forEach((b,i)=>b.onclick=()=>{$("keyword").value=examples[i];state.keyword=examples[i];saveLocal()});$("apiKey").value=localStorage.getItem(KEYSTORE)||"";try{const saved=JSON.parse(localStorage.getItem(STORE));if(saved)state=saved}catch{}$("keyword").value=state.keyword||"";render();
+(() => {
+"use strict";
+
+/* ---------------------------------------------------------------- config */
+const TEXT_MODEL = "gemini-flash-latest";
+const IMAGE_MODEL = "gemini-3.1-flash-image";
+const API_BASE = "https://generativelanguage.googleapis.com/v1beta/models";
+const STORE = "emotional-cmf-design-project-v5";
+const KEYSTORE = "emotional-cmf-gemini-api-key";
+const TEXT_TIMEOUT = 90000;
+const IMAGE_TIMEOUT = 180000;
+const IMAGE_CONCURRENCY = 2;
+
+const steps = [
+  { key:"emotion",     label:"감성 해석", en:"Emotion",            count:3 },
+  { key:"perception",  label:"지각",      en:"Perception",         count:6 },
+  { key:"properties",  label:"물성",      en:"Material Properties",count:6 },
+  { key:"inspiration", label:"영감",      en:"Inspiration",        count:3 },
+  { key:"material",    label:"소재·가공", en:"Material & Process", count:3 },
+  { key:"sample",      label:"CMF 샘플",  en:"CMF Samples",        count:3 }
+];
+const stepKeys = steps.map(s => s.key);
+
+const examples = [
+  "차분하고 미래적이며 세련되다",
+  "가볍고 부드럽고 온화하다",
+  "자연스럽고 생명감 있고 투명하다",
+  "젊고 활기차고 즐겁고 고급스럽다",
+  "어둡고 무겁고 절제되어 있다"
+];
+
+const rules = {
+  emotion:"서로 중복되지 않는 3가지 감성 해석. 1안은 빛·투명도, 2안은 표면·촉감, 3안은 구조·밀도·리듬 중심. description은 2문장, cues는 물질 단서 3개.",
+  perception:"선택 감성이 눈과 손에 어떻게 인식되는지 6가지. 감정어 대신 보인다·느껴진다·인식된다·만져진다의 언어를 사용하고 시각·촉각을 균형 있게 포함.",
+  properties:"지각 특성을 광택, 투명도, 표면 거칠기, 경도/탄성, 두께/밀도, 형상/리듬의 실제 물성 언어 6가지로 전환.",
+  inspiration:"선택 물성을 구현할 영감 방향 3가지. 자연, 건축/공간, 예술/현상에서 각각 하나씩 도출.",
+  material:"현실적인 소재·가공 조합 3가지. keyword는 '소재 · 가공' 형식, description에는 색·마감·제조 방식 포함.",
+  sample:"최종 CMF 샘플 3가지. 영문 컨셉명과 정확한 색조·소재·광택·촉감·가공 조합."
+};
+
+const fallback = {
+  emotion:[
+    ["빛의 여백","부드럽게 퍼지는 빛과 낮은 긴장감으로 해석합니다.",["확산광","반투명","넓은 여백"]],
+    ["감춰진 촉감","차분한 표면 안에 섬세한 촉각의 기대를 담습니다.",["미세결","소프트 매트","잔잔한 층"]],
+    ["정돈된 밀도","균형 잡힌 구조와 절제된 리듬으로 감성을 응축합니다.",["정렬","고밀도","느린 리듬"]]
+  ],
+  perception:[
+    ["번지는 경계","윤곽이 부드럽게 풀리며 보입니다.",[]],
+    ["낮은 반사","빛이 자극 없이 은은하게 인식됩니다.",[]],
+    ["미세한 결","손끝에 섬세한 저항이 느껴집니다.",[]],
+    ["겹친 깊이","반투명 층 사이로 깊이가 보입니다.",[]],
+    ["완만한 흐름","시선이 끊김 없이 천천히 이동합니다.",[]],
+    ["안정된 무게","밀도는 있지만 부담 없이 느껴집니다.",[]]
+  ],
+  properties:[
+    ["소프트 매트","반사율을 낮춰 표면을 차분하게 만듭니다.",[]],
+    ["반투명 레이어","빛이 층을 통과하며 깊이를 형성합니다.",[]],
+    ["초미세 텍스처","육안보다 손끝에서 먼저 인식되는 결입니다.",[]],
+    ["저채도 그라데이션","색의 전환을 길고 조용하게 연결합니다.",[]],
+    ["둥근 엣지","경계의 긴장감을 완만하게 낮춥니다.",[]],
+    ["균일한 밀도","구조적 흔들림 없이 안정감을 유지합니다.",[]]
+  ],
+  inspiration:[
+    ["안개 속의 빛","경계를 지우며 천천히 드러나는 빛에서 영감을 얻습니다.",[]],
+    ["물결 아래의 층","겹쳐진 투명도와 느린 흐름을 포착합니다.",[]],
+    ["손에 닳은 돌","시간이 만든 둥근 표면과 안정된 촉감을 옮깁니다.",[]]
+  ],
+  material:[
+    ["반투명 PC · 프로스트","미세 샌딩과 프로스트 코팅으로 확산광을 구현합니다.",[]],
+    ["알루미늄 · 비드블라스트","고운 입자와 저광택 아노다이징으로 밀도를 낮춥니다.",[]],
+    ["실리콘 · 마이크로 엠보","부드러운 탄성과 초미세 패턴으로 촉각을 강조합니다.",[]]
+  ],
+  sample:[
+    ["Mist Pearl","웜 화이트 반투명층과 실키 매트 표면의 조합입니다.",[]],
+    ["Quiet Graphite","저채도 흑연색과 미세 금속 입자의 절제된 조합입니다.",[]],
+    ["Soft Aqua","옅은 아쿠아 그라데이션과 유연한 촉감의 조합입니다.",[]]
+  ]
+};
+
+const fallbackImagePrompt = {
+  emotion:"A soft-lit abstract material still life, diffused light through translucent surfaces, calm neutral palette",
+  perception:"An extreme close-up of a surface showing how light and touch are perceived, shallow depth of field",
+  properties:"A macro photograph of a material surface showing gloss, translucency and micro texture",
+  inspiration:"A quiet natural or architectural scene that inspires a material direction, soft daylight",
+  material:"A studio photograph of a real material sample with visible finish and processing detail",
+  sample:"A studio photograph of a finished CMF sample chip showing exact colour, gloss and texture"
+};
+
+/* ---------------------------------------------------------------- helpers */
+const $ = id => document.getElementById(id);
+const els = {};
+["steps","stepNo","stepLabel","stepEn","apiKey","keyword","chips","generate","cancelBtn","status",
+ "stageCount","resultLabel","resultEn","download","staleBanner","fallbackBanner","empty","output",
+ "cards","back","next","progressText","progressBar","progressSmall","final","finalSub","summary",
+ "file","loadBtn","saveBtn","resetBtn","keySave","keyTest","keyClear","finalPng","finalJson"]
+ .forEach(id => els[id] = $(id));
+
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const pad2 = n => String(n).padStart(2, "0");
+const safeName = s => String(s || "").replace(/[\\/:*?"<>|\r\n\t]+/g, " ").replace(/\s+/g, " ").trim().slice(0, 40) || "project";
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+function setStatus(msg, tone) {
+  els.status.textContent = msg;
+  els.status.className = "status" + (tone ? " " + tone : "");
+}
+
+/* ---------------------------------------------------------------- image store (IndexedDB) */
+const IDB_NAME = "emotional-cmf-images";
+const IDB_STORE = "boards";
+let dbPromise = null;
+
+function openDB() {
+  if (dbPromise) return dbPromise;
+  dbPromise = new Promise((resolve, reject) => {
+    let req;
+    try { req = indexedDB.open(IDB_NAME, 1); }
+    catch (e) { return reject(e); }
+    req.onupgradeneeded = () => {
+      if (!req.result.objectStoreNames.contains(IDB_STORE)) req.result.createObjectStore(IDB_STORE);
+    };
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error || new Error("IndexedDB를 열 수 없습니다."));
+  });
+  return dbPromise;
+}
+
+async function idbRun(mode, fn) {
+  const db = await openDB();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(IDB_STORE, mode);
+    const req = fn(tx.objectStore(IDB_STORE));
+    tx.onabort = tx.onerror = () => reject(tx.error || new Error("이미지 저장소 오류"));
+    if (req) { req.onsuccess = () => resolve(req.result); req.onerror = () => reject(req.error); }
+    else tx.oncomplete = () => resolve();
+  });
+}
+
+const imgGet   = k => idbRun("readonly",  st => st.get(k)).catch(() => null);
+const imgSet   = (k, v) => idbRun("readwrite", st => st.put(v, k));
+const imgDel   = k => idbRun("readwrite", st => st.delete(k)).catch(() => {});
+const imgClear = () => idbRun("readwrite", st => st.clear()).catch(() => {});
+
+const memImg = new Map();               // key -> dataURL (session cache)
+const imgKey = (stepKey, i) => stepKey + ":" + i;
+
+async function putImage(key, dataURL) {
+  memImg.set(key, dataURL);
+  try { await imgSet(key, dataURL); }
+  catch (e) { console.warn("이미지 저장 실패", e); }
+}
+async function getImage(key) {
+  if (memImg.has(key)) return memImg.get(key);
+  const v = await imgGet(key);
+  if (typeof v === "string") { memImg.set(key, v); return v; }
+  return null;
+}
+async function clearStepImages(stepKey, count) {
+  for (let i = 0; i < count; i++) {
+    const k = imgKey(stepKey, i);
+    memImg.delete(k);
+    await imgDel(k);
+  }
+}
+
+/* ---------------------------------------------------------------- state */
+const blankState = () => ({ version:5, keyword:"", stepIndex:0, results:{}, updatedAt:"" });
+let state = blankState();
+let busy = false;
+let genToken = 0;
+let abortCtl = null;
+const imgStatus = {};   // "stepKey:i" -> "pending" | "error"
+
+function sanitizeState(raw) {
+  const out = blankState();
+  if (!raw || typeof raw !== "object") return out;
+  out.keyword = typeof raw.keyword === "string" ? raw.keyword.slice(0, 400) : "";
+  const idx = Number(raw.stepIndex);
+  out.stepIndex = Number.isFinite(idx) ? Math.min(steps.length - 1, Math.max(0, Math.trunc(idx))) : 0;
+  const src = raw.results && typeof raw.results === "object" ? raw.results : {};
+  stepKeys.forEach((key, i) => {
+    const r = src[key];
+    if (!r || typeof r !== "object" || !Array.isArray(r.options) || !r.options.length) return;
+    const step = steps[i];
+    const options = r.options.slice(0, step.count).map((o, j) => normalizeOption(o, j));
+    let selected;
+    const sel = Number(r.selected);
+    if (Number.isInteger(sel) && sel >= 0 && sel < options.length) selected = sel;
+    out.results[key] = {
+      options,
+      selected,
+      fallback: !!r.fallback,
+      sig: typeof r.sig === "string" ? r.sig : "",
+      at: typeof r.at === "string" ? r.at : ""
+    };
+  });
+  return out;
+}
+
+function normalizeOption(o, i) {
+  o = o && typeof o === "object" ? o : {};
+  const cues = Array.isArray(o.cues) ? o.cues.slice(0, 3).map(c => String(c).slice(0, 24)) : [];
+  return {
+    number: pad2(String(o.number || i + 1).replace(/\D/g, "") || i + 1).slice(0, 2),
+    keyword: String(o.keyword || "방향 " + (i + 1)).slice(0, 48),
+    description: String(o.description || "").slice(0, 400),
+    cues,
+    imagePrompt: String(o.imagePrompt || "").slice(0, 700),
+    hasImage: !!o.hasImage
+  };
+}
+
+function saveLocal() {
+  state.updatedAt = new Date().toISOString();
+  try {
+    localStorage.setItem(STORE, JSON.stringify(state));
+  } catch (e) {
+    console.warn("localStorage 저장 실패", e);
+    setStatus("브라우저 저장 공간이 부족해 진행 상태를 저장하지 못했습니다. 프로젝트 저장 버튼으로 파일에 백업해 주세요.", "warn");
+  }
+}
+
+const current = () => steps[state.stepIndex];
+
+/* 단계별 맥락 서명: 키워드 + 이전 단계 선택 결과 */
+function sigFor(index) {
+  const parts = [state.keyword.trim()];
+  for (let i = 0; i < index; i++) {
+    const r = state.results[stepKeys[i]];
+    parts.push(r && r.selected !== undefined ? r.options[r.selected].keyword : "-");
+  }
+  return parts.join("|");
+}
+function isStale(index) {
+  const r = state.results[stepKeys[index]];
+  return !!r && r.sig !== sigFor(index);
+}
+function selectedPath(until) {
+  return steps.slice(0, until).map((s, i) => {
+    const r = state.results[s.key];
+    const o = r && r.selected !== undefined ? r.options[r.selected] : null;
+    return o ? `${s.label}: ${o.keyword} — ${o.description}` : "";
+  }).filter(Boolean).join("\n");
+}
+function completedCount() {
+  return steps.reduce((n, s, i) => {
+    const r = state.results[s.key];
+    return n + (r && r.selected !== undefined && !isStale(i) ? 1 : 0);
+  }, 0);
+}
+const allDone = () => completedCount() === steps.length;
+
+/* ---------------------------------------------------------------- API */
+async function request(model, body, { timeout, signal }) {
+  const key = els.apiKey.value.trim();
+  if (!key) throw new Error("API 키가 없습니다.");
+  const ctl = new AbortController();
+  const onAbort = () => ctl.abort();
+  if (signal) { if (signal.aborted) ctl.abort(); else signal.addEventListener("abort", onAbort); }
+  const timer = setTimeout(() => ctl.abort(new DOMException("timeout", "TimeoutError")), timeout);
+
+  try {
+    let lastErr;
+    for (let attempt = 0; attempt < 3; attempt++) {
+      try {
+        const res = await fetch(`${API_BASE}/${model}:generateContent`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "x-goog-api-key": key },
+          body: JSON.stringify(body),
+          signal: ctl.signal
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok) return data;
+
+        const msg = data?.error?.message || `요청 실패 (HTTP ${res.status})`;
+        const err = new Error(msg);
+        err.status = res.status;
+        if (res.status === 429 || res.status >= 500) {   // 재시도 가능
+          lastErr = err;
+          await sleep(1200 * Math.pow(2, attempt));
+          continue;
+        }
+        throw err;
+      } catch (e) {
+        if (e.name === "AbortError" || e.name === "TimeoutError") throw e;
+        if (e.status) throw e;                            // 재시도 불가 API 오류
+        lastErr = e;                                      // 네트워크 오류
+        if (attempt === 2) break;
+        await sleep(1200 * Math.pow(2, attempt));
+      }
+    }
+    throw lastErr || new Error("네트워크에 연결할 수 없습니다.");
+  } finally {
+    clearTimeout(timer);
+    if (signal) signal.removeEventListener("abort", onAbort);
+  }
+}
+
+function normalizeAbort(e) {
+  if (e && (e.name === "AbortError" || e.name === "TimeoutError")) {
+    if (abortCtl && abortCtl.signal.aborted) { const x = new Error("중단됨"); x.cancelled = true; return x; }
+    return new Error("응답 시간이 초과되었습니다. 다시 시도해 주세요.");
+  }
+  return e;
+}
+
+const textSchema = {
+  type: "OBJECT",
+  properties: {
+    options: {
+      type: "ARRAY",
+      items: {
+        type: "OBJECT",
+        properties: {
+          number: { type: "STRING" },
+          keyword: { type: "STRING" },
+          description: { type: "STRING" },
+          cues: { type: "ARRAY", items: { type: "STRING" } },
+          imagePrompt: { type: "STRING" }
+        },
+        required: ["number", "keyword", "description", "imagePrompt"]
+      }
+    }
+  },
+  required: ["options"]
+};
+
+function textPrompt(step, keyword) {
+  return `당신은 감성 디자인 및 CMF 전문 디자인 디렉터다.
+입력 감성: ${keyword}
+현재 단계: ${step.label} ${step.en}
+이전 선택:
+${selectedPath(state.stepIndex) || "없음"}
+요구사항: ${rules[step.key]}
+정확히 ${step.count}개를 제안한다.
+keyword, description, cues는 한국어로 작성한다.
+imagePrompt는 영어로 작성하며, 그 방향을 대표하는 사진 한 장을 묘사한다. 소재·표면·빛·질감 중심으로 쓰고, 글자·로고·사람·UI·색상칩·다이어그램은 넣지 않는다.`;
+}
+
+async function callText(step, keyword, signal) {
+  const base = { contents: [{ role: "user", parts: [{ text: textPrompt(step, keyword) }] }] };
+  const configs = [
+    { responseMimeType: "application/json", responseSchema: textSchema },
+    { responseMimeType: "application/json" },
+    null
+  ];
+  let lastErr;
+  for (const cfg of configs) {
+    try {
+      const body = cfg ? { ...base, generationConfig: cfg } : base;
+      const data = await request(TEXT_MODEL, body, { timeout: TEXT_TIMEOUT, signal });
+      const cand = data?.candidates?.[0];
+      if (!cand) {
+        const block = data?.promptFeedback?.blockReason;
+        throw new Error(block ? `요청이 차단되었습니다 (${block}).` : "모델이 응답을 반환하지 않았습니다.");
+      }
+      const raw = (cand.content?.parts || []).map(p => p.text || "").join("").trim();
+      if (!raw) throw new Error("모델이 빈 응답을 반환했습니다.");
+      return parseOptions(raw, step);
+    } catch (e) {
+      const err = normalizeAbort(e);
+      if (err.cancelled || err.name === "AbortError") throw err;
+      lastErr = err;
+      // 설정 미지원(400)일 때만 다음 설정으로 폴백
+      if (!(e.status === 400)) throw err;
+    }
+  }
+  throw lastErr;
+}
+
+function parseOptions(raw, step) {
+  const cleaned = raw.replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/, "").trim();
+  let parsed;
+  try { parsed = JSON.parse(cleaned); }
+  catch { 
+    const m = cleaned.match(/[[{][\s\S]*[\]}]/);
+    if (!m) throw new Error("모델 응답을 JSON으로 해석하지 못했습니다.");
+    parsed = JSON.parse(m[0]);
+  }
+  const src = Array.isArray(parsed) ? parsed : parsed?.options;
+  if (!Array.isArray(src) || !src.length) throw new Error("모델 응답에 방향 목록이 없습니다.");
+  return src.slice(0, step.count).map((o, i) => normalizeOption(o, i));
+}
+
+function imagePromptFor(step, option, keyword) {
+  const core = option.imagePrompt
+    || `${fallbackImagePrompt[step.key]}. Theme: ${option.keyword}. ${option.cues.join(", ")}`;
+  return `Photorealistic material photography for a CMF design board.
+${core}
+Context: emotional keyword "${keyword}", stage "${step.en}".
+Style: single subject, editorial product photography, soft directional studio light, warm neutral background, shallow depth of field, fine surface detail visible, calm colour grading.
+Strictly no text, no letters, no numbers, no logos, no watermark, no people, no collage, no split frames, no UI.`;
+}
+
+async function callImage(prompt, signal) {
+  const base = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
+  const configs = [
+    { responseModalities: ["TEXT", "IMAGE"], imageConfig: { aspectRatio: "4:3", imageSize: "1K" } },
+    { responseModalities: ["TEXT", "IMAGE"], imageConfig: { aspectRatio: "4:3" } },
+    { responseModalities: ["TEXT", "IMAGE"] }
+  ];
+  let lastErr;
+  for (const cfg of configs) {
+    try {
+      const data = await request(IMAGE_MODEL, { ...base, generationConfig: cfg }, { timeout: IMAGE_TIMEOUT, signal });
+      const parts = data?.candidates?.[0]?.content?.parts || [];
+      const part = parts.find(p => p.inlineData?.data || p.inline_data?.data);
+      const inline = part?.inlineData || part?.inline_data;
+      if (!inline?.data) {
+        const block = data?.promptFeedback?.blockReason || data?.candidates?.[0]?.finishReason;
+        throw new Error(block ? `이미지가 생성되지 않았습니다 (${block}).` : "이미지 데이터가 반환되지 않았습니다.");
+      }
+      return `data:${inline.mimeType || inline.mime_type || "image/png"};base64,${inline.data}`;
+    } catch (e) {
+      const err = normalizeAbort(e);
+      if (err.cancelled || err.name === "AbortError") throw err;
+      lastErr = err;
+      if (!(e.status === 400)) throw err;
+    }
+  }
+  throw lastErr;
+}
+
+/* ---------------------------------------------------------------- generation flow */
+function lockUI(locked) {
+  els.generate.disabled = locked;
+  els.cancelBtn.classList.toggle("hide", !locked);
+  els.keyword.disabled = locked;
+  els.resetBtn.disabled = locked;
+  els.loadBtn.disabled = locked;
+  els.saveBtn.disabled = locked;
+  els.keyTest.disabled = locked;
+  els.chips.querySelectorAll("button").forEach(b => b.disabled = locked);
+  els.steps.querySelectorAll("button").forEach(b => { if (locked) b.disabled = true; });
+  els.back.disabled = locked;
+  els.next.disabled = locked || !canAdvance();
+}
+
+async function runPool(tasks, limit) {
+  let i = 0;
+  const workers = Array.from({ length: Math.min(limit, tasks.length) }, async () => {
+    while (i < tasks.length) {
+      const idx = i++;
+      await tasks[idx]();
+    }
+  });
+  await Promise.all(workers);
+}
+
+async function generate() {
+  if (busy) return;
+  const keyword = els.keyword.value.trim();
+  if (!keyword) { setStatus("먼저 감성 키워드를 입력해 주세요.", "warn"); els.keyword.focus(); return; }
+  if (!els.apiKey.value.trim()) { setStatus("먼저 Gemini API 키를 입력해 주세요.", "warn"); els.apiKey.focus(); return; }
+
+  const step = current();
+  const stepIdx = state.stepIndex;
+  const token = ++genToken;
+  busy = true;
+  abortCtl = new AbortController();
+  state.keyword = keyword;
+  els.generate.innerHTML = '<i class="spinner"></i>생성 중';
+  lockUI(true);
+  setStatus(`${step.label} 방향 ${step.count}개를 생성하고 있습니다…`);
+
+  let options, usedFallback = false;
+  try {
+    options = await callText(step, keyword, abortCtl.signal);
+  } catch (e) {
+    if (e.cancelled) { finishGeneration(token, "생성을 중단했습니다."); return; }
+    options = fallback[step.key].slice(0, step.count)
+      .map((x, i) => normalizeOption({ number: i + 1, keyword: x[0], description: x[1], cues: x[2] }, i));
+    usedFallback = true;
+    setStatus(`텍스트 생성 실패: ${e.message} 예시 데이터를 대신 표시합니다.`, "warn");
+  }
+  if (token !== genToken) return;
+
+  await clearStepImages(step.key, 12);
+  state.results[step.key] = {
+    options, selected: undefined, fallback: usedFallback,
+    sig: sigFor(stepIdx), at: new Date().toISOString()
+  };
+  saveLocal();
+  render();
+
+  if (!usedFallback) setStatus(`${step.label} 텍스트 완료. 이미지 ${options.length}장을 생성하고 있습니다…`);
+  else setStatus(`예시 데이터로 이미지 ${options.length}장을 생성하고 있습니다…`, "warn");
+
+  options.forEach((_, i) => imgStatus[imgKey(step.key, i)] = "pending");
+  render();
+
+  let ok = 0, failed = 0, cancelled = false;
+  await runPool(options.map((o, i) => async () => {
+    if (token !== genToken || cancelled) return;
+    const key = imgKey(step.key, i);
+    try {
+      const dataURL = await callImage(imagePromptFor(step, o, keyword), abortCtl.signal);
+      if (token !== genToken) return;
+      await putImage(key, dataURL);
+      o.hasImage = true;
+      delete imgStatus[key];
+      ok++;
+      saveLocal();
+    } catch (e) {
+      if (e.cancelled) { cancelled = true; delete imgStatus[key]; return; }
+      imgStatus[key] = "error";
+      failed++;
+    }
+    if (token === genToken) updateCard(i);
+  }), IMAGE_CONCURRENCY);
+
+  if (token !== genToken) return;
+
+  let msg;
+  if (cancelled) msg = "이미지 생성을 중단했습니다. 카드별로 다시 시도할 수 있습니다.";
+  else if (failed) msg = `이미지 ${ok}장 완료, ${failed}장 실패. 실패한 카드는 개별로 다시 시도할 수 있습니다.`;
+  else msg = `${step.label} 방향 ${options.length}개가 준비되었습니다. 하나를 선택하세요.`;
+  if (usedFallback) msg = "AI 응답 실패 — 예시 데이터입니다. " + msg;
+  finishGeneration(token, msg, usedFallback || failed || cancelled ? "warn" : "ok");
+}
+
+function finishGeneration(token, msg, tone) {
+  if (token !== genToken) return;
+  busy = false;
+  abortCtl = null;
+  setStatus(msg, tone);
+  render();
+}
+
+async function retryImage(index) {
+  if (busy) return;
+  const step = current();
+  const r = state.results[step.key];
+  if (!r) return;
+  const option = r.options[index];
+  const key = imgKey(step.key, index);
+  const token = ++genToken;
+  busy = true;
+  abortCtl = new AbortController();
+  imgStatus[key] = "pending";
+  lockUI(true);
+  updateCard(index);
+  setStatus(`${option.number} ${option.keyword} 이미지를 다시 생성하고 있습니다…`);
+  try {
+    const dataURL = await callImage(imagePromptFor(step, option, state.keyword.trim()), abortCtl.signal);
+    if (token !== genToken) return;
+    await putImage(key, dataURL);
+    option.hasImage = true;
+    delete imgStatus[key];
+    saveLocal();
+    finishGeneration(token, "이미지를 생성했습니다.", "ok");
+  } catch (e) {
+    if (token !== genToken) return;
+    imgStatus[key] = e.cancelled ? undefined : "error";
+    if (!imgStatus[key]) delete imgStatus[key];
+    finishGeneration(token, e.cancelled ? "이미지 생성을 중단했습니다." : `이미지 생성 실패: ${e.message}`, "warn");
+  }
+}
+
+/* ---------------------------------------------------------------- rendering */
+function canAdvance() {
+  const r = state.results[current().key];
+  return !!r && r.selected !== undefined;
+}
+
+function render() {
+  const step = current();
+  const r = state.results[step.key];
+
+  els.stepNo.textContent = pad2(state.stepIndex + 1);
+  els.stepLabel.textContent = step.label;
+  els.stepEn.textContent = step.en;
+  els.resultLabel.textContent = step.label;
+  els.resultEn.textContent = step.en;
+  els.stageCount.textContent = `${pad2(state.stepIndex + 1)} / ${pad2(steps.length)}`;
+  if (!busy) els.generate.textContent = r ? `${step.label} 다시 생성` : `${step.label} 방향 생성`;
+
+  const done = completedCount();
+  const pct = Math.round(done / steps.length * 100);
+  els.progressText.textContent = pct + "%";
+  els.progressBar.style.width = pct + "%";
+  els.progressSmall.textContent = `6단계 중 ${done}단계 확정`;
+
+  renderSteps();
+
+  els.empty.classList.toggle("hide", !!r);
+  els.output.classList.toggle("hide", !r);
+  els.download.classList.toggle("hide", !r);
+
+  const stale = isStale(state.stepIndex);
+  els.staleBanner.classList.toggle("hide", !stale);
+  if (stale) els.staleBanner.innerHTML = "<span>⟳</span><span><b>이전 단계가 변경되었습니다.</b> 지금 보이는 방향은 예전 맥락으로 만들어졌습니다. 다시 생성하면 최신 선택이 반영됩니다.</span>";
+
+  els.fallbackBanner.classList.toggle("hide", !(r && r.fallback));
+  if (r && r.fallback) els.fallbackBanner.innerHTML = "<span>!</span><span><b>AI 응답이 아닌 예시 데이터입니다.</b> 텍스트 생성이 실패해 내장 샘플을 표시하고 있습니다. 연결을 확인한 뒤 다시 생성해 주세요.</span>";
+
+  if (r) renderCards(step, r);
+
+  els.back.classList.toggle("hide", state.stepIndex === 0);
+  els.next.disabled = busy || !canAdvance();
+  els.next.textContent = state.stepIndex === steps.length - 1 ? "최종 보드 보기" : `선택하고 ${steps[state.stepIndex + 1].label}로`;
+
+  renderFinal();
+  lockUI(busy);
+}
+
+function renderSteps() {
+  els.steps.innerHTML = steps.map((s, i) => {
+    const r = state.results[s.key];
+    const stale = isStale(i);
+    const done = r && r.selected !== undefined && !stale;
+    const prev = i === 0 || (state.results[stepKeys[i - 1]] || {}).selected !== undefined;
+    const unlocked = i === 0 || prev || !!r;
+    const cls = [i === state.stepIndex ? "active" : "", done ? "done" : "", stale ? "stale" : ""].filter(Boolean).join(" ");
+    return `<button type="button" data-step="${i}" class="${cls}" ${unlocked ? "" : "disabled"} ${i === state.stepIndex ? 'aria-current="step"' : ""}>
+      <span class="num" aria-hidden="true">${done ? "✓" : stale ? "!" : pad2(i + 1)}</span>
+      <span><strong>${esc(s.label)}</strong><small>${esc(s.en)}</small></span>
+    </button>`;
+  }).join("");
+  const active = els.steps.querySelector(".active");
+  if (active && window.innerWidth <= 760) active.scrollIntoView({ block: "nearest", inline: "center" });
+}
+
+function cardMarkup(step, r, o, i) {
+  const key = imgKey(step.key, i);
+  const st = imgStatus[key];
+  let fig;
+  if (st === "pending") fig = `<div class="ph"><i class="spinner"></i>이미지 생성 중</div>`;
+  else if (o.hasImage) fig = `<img data-img="${i}" alt="${esc(o.keyword)} 이미지" src="${memImg.get(key) || ""}">`;
+  else if (st === "error") fig = `<div class="ph">이미지를 만들지 못했습니다<br><button class="retry" type="button" data-retry="${i}">이미지 다시 생성</button></div>`;
+  else fig = `<div class="ph">이미지 없음<br><button class="retry" type="button" data-retry="${i}">이미지 생성</button></div>`;
+
+  return `<div class="card ${r.selected === i ? "selected" : ""}" data-card="${i}">
+    <div class="fig">${fig}</div>
+    <button class="body" type="button" data-option="${i}" aria-pressed="${r.selected === i}" style="border:0;background:none;text-align:left;width:100%">
+      <span class="top-row"><span class="onum" aria-hidden="true">${r.selected === i ? "✓" : esc(o.number)}</span><strong>${esc(o.keyword)}</strong></span>
+      <span class="desc">${esc(o.description)}</span>
+      ${o.cues.length ? `<span class="cues">${esc(o.cues.join(" · "))}</span>` : ""}
+    </button>
+  </div>`;
+}
+
+let cardsSignature = "";
+function renderCards(step, r) {
+  const sig = [step.key, r.options.length, r.at, r.selected,
+    r.options.map((o, i) => (o.hasImage ? "1" : "0") + (imgStatus[imgKey(step.key, i)] || "")).join(",")].join("|");
+  if (sig === cardsSignature) return;
+  cardsSignature = sig;
+  els.cards.innerHTML = r.options.map((o, i) => cardMarkup(step, r, o, i)).join("");
+  loadStepImages(step, r);
+}
+
+function updateCard(i) {
+  const step = current();
+  const r = state.results[step.key];
+  if (!r) return;
+  const el = els.cards.querySelector(`[data-card="${i}"]`);
+  if (!el) { cardsSignature = ""; render(); return; }
+  const wrap = document.createElement("div");
+  wrap.innerHTML = cardMarkup(step, r, r.options[i], i);
+  el.replaceWith(wrap.firstElementChild);
+  cardsSignature = "";
+}
+
+async function loadStepImages(step, r) {
+  for (let i = 0; i < r.options.length; i++) {
+    if (!r.options[i].hasImage) continue;
+    const key = imgKey(step.key, i);
+    if (memImg.has(key)) continue;
+    const data = await getImage(key);
+    if (!data) { r.options[i].hasImage = false; updateCard(i); continue; }
+    if (current().key !== step.key) return;
+    const img = els.cards.querySelector(`img[data-img="${i}"]`);
+    if (img) img.src = data;
+  }
+}
+
+function syncSelection() {
+  const step = current();
+  const r = state.results[step.key];
+  if (!r) return;
+  els.cards.querySelectorAll("[data-card]").forEach(el => {
+    const i = Number(el.dataset.card);
+    const on = r.selected === i;
+    el.classList.toggle("selected", on);
+    const btn = el.querySelector("[data-option]");
+    if (btn) btn.setAttribute("aria-pressed", String(on));
+    const num = el.querySelector(".onum");
+    if (num) num.textContent = on ? "✓" : r.options[i].number;
+  });
+  cardsSignature = "";
+}
+
+async function renderFinal() {
+  const show = allDone();
+  els.final.classList.toggle("hide", !show);
+  if (!show) return;
+  els.finalSub.textContent = `감성 키워드 “${state.keyword.trim()}” · 6단계 선택 결과`;
+  els.summary.innerHTML = steps.map(s => {
+    const r = state.results[s.key];
+    const o = r.options[r.selected];
+    const key = imgKey(s.key, r.selected);
+    const src = memImg.get(key) || "";
+    return `<article class="sum">
+      <div class="fig">${o.hasImage ? `<img data-final="${esc(key)}" alt="${esc(o.keyword)} 이미지" src="${src}">` : ""}</div>
+      <div class="body">
+        <div class="step">${esc(s.label)} · ${esc(s.en)}</div>
+        <strong>${esc(o.keyword)}</strong>
+        <span class="desc">${esc(o.description)}</span>
+      </div>
+    </article>`;
+  }).join("");
+  for (const s of steps) {
+    const r = state.results[s.key];
+    if (!r.options[r.selected].hasImage) continue;
+    const key = imgKey(s.key, r.selected);
+    const data = await getImage(key);
+    const img = els.summary.querySelector(`img[data-final="${key}"]`);
+    if (img && data) img.src = data;
+  }
+}
+
+/* ---------------------------------------------------------------- canvas export */
+function loadImageEl(src) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = () => reject(new Error("이미지를 불러오지 못했습니다."));
+    img.src = src;
+  });
+}
+function drawCover(ctx, img, x, y, w, h) {
+  const r = Math.max(w / img.width, h / img.height);
+  const dw = img.width * r, dh = img.height * r;
+  ctx.save();
+  ctx.beginPath(); ctx.rect(x, y, w, h); ctx.clip();
+  ctx.drawImage(img, x + (w - dw) / 2, y + (h - dh) / 2, dw, dh);
+  ctx.restore();
+}
+function wrapText(ctx, text, x, y, maxW, lineH, maxLines) {
+  const tokens = String(text).split(/\s+/).filter(Boolean);
+  const lines = [];
+  let line = "";
+  const push = () => { if (line) { lines.push(line); line = ""; } };
+  for (const wRaw of tokens) {
+    let w = wRaw;
+    while (ctx.measureText(w).width > maxW) {          // 공백 없는 긴 문자열 대응
+      push();
+      let cut = 1;
+      while (cut < w.length && ctx.measureText(w.slice(0, cut + 1)).width <= maxW) cut++;
+      lines.push(w.slice(0, cut));
+      w = w.slice(cut);
+    }
+    const test = line ? line + " " + w : w;
+    if (line && ctx.measureText(test).width > maxW) { push(); line = w; }
+    else line = test;
+  }
+  push();
+  const shown = lines.slice(0, maxLines);
+  if (lines.length > maxLines && shown.length) {
+    let last = shown[shown.length - 1];
+    while (last.length && ctx.measureText(last + "…").width > maxW) last = last.slice(0, -1);
+    shown[shown.length - 1] = last + "…";
+  }
+  shown.forEach((l, i) => ctx.fillText(l, x, y + i * lineH));
+  return y + shown.length * lineH;
+}
+const FONT = '"Pretendard","Noto Sans KR","Apple SD Gothic Neo",system-ui,sans-serif';
+
+async function composeBoard(step) {
+  const r = state.results[step.key];
+  const cols = 3, rows = Math.ceil(r.options.length / cols);
+  const W = 1920, H = rows > 1 ? 1400 : 1080;
+  const c = document.createElement("canvas");
+  c.width = W; c.height = H;
+  const ctx = c.getContext("2d");
+  ctx.fillStyle = "#f7f7f4"; ctx.fillRect(0, 0, W, H);
+  ctx.textBaseline = "top";
+
+  const M = 90;
+  ctx.fillStyle = "#1c5c4b"; ctx.font = `800 20px ${FONT}`;
+  ctx.fillText("EMOTIONAL CMF DESIGN", M, 68);
+  ctx.fillStyle = "#141d1a"; ctx.font = `600 54px ${FONT}`;
+  ctx.fillText(`${step.label}  ${step.en}`, M, 104);
+  ctx.fillStyle = "#5d6b65"; ctx.font = `400 24px ${FONT}`;
+  ctx.fillText(state.keyword.trim(), M, 176);
+  ctx.strokeStyle = "#dde4e0"; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(M, 232); ctx.lineTo(W - M, 232); ctx.stroke();
+
+  const gap = 40;
+  const cw = (W - M * 2 - gap * (cols - 1)) / cols;
+  const imgH = Math.round(cw * 3 / 4);
+  const rowH = imgH + 210;
+  const top = 280;
+
+  for (let i = 0; i < r.options.length; i++) {
+    const o = r.options[i];
+    const col = i % cols, row = Math.floor(i / cols);
+    const x = M + col * (cw + gap), y = top + row * (rowH + 30);
+
+    ctx.fillStyle = "#e9edeb"; ctx.fillRect(x, y, cw, imgH);
+    const data = o.hasImage ? await getImage(imgKey(step.key, i)) : null;
+    if (data) { try { drawCover(ctx, await loadImageEl(data), x, y, cw, imgH); } catch {} }
+    else {
+      ctx.fillStyle = "#9aa8a2"; ctx.font = `400 20px ${FONT}`;
+      ctx.fillText("이미지 없음", x + 20, y + imgH / 2 - 12);
+    }
+
+    if (r.selected === i) { ctx.fillStyle = "#9ff3cf"; ctx.fillRect(x, y + imgH, cw, 6); }
+
+    let ty = y + imgH + 26;
+    ctx.fillStyle = "#5d6b65"; ctx.font = `800 18px ${FONT}`;
+    ctx.fillText(o.number + (r.selected === i ? "  SELECTED" : ""), x, ty);
+    ty += 28;
+    ctx.fillStyle = "#141d1a"; ctx.font = `700 30px ${FONT}`;
+    ty = wrapText(ctx, o.keyword, x, ty, cw, 38, 2) + 8;
+    ctx.fillStyle = "#3c4a44"; ctx.font = `400 20px ${FONT}`;
+    ty = wrapText(ctx, o.description, x, ty, cw, 30, 3) + 4;
+    if (o.cues.length) {
+      ctx.fillStyle = "#1c5c4b"; ctx.font = `700 18px ${FONT}`;
+      ctx.fillText(o.cues.join(" · "), x, ty);
+    }
+  }
+
+  ctx.fillStyle = "#8b9791"; ctx.font = `400 17px ${FONT}`;
+  ctx.fillText(new Date().toLocaleDateString("ko-KR"), M, H - 60);
+  return c.toDataURL("image/png");
+}
+
+async function composeFinal() {
+  const W = 1920, H = 1400;
+  const c = document.createElement("canvas");
+  c.width = W; c.height = H;
+  const ctx = c.getContext("2d");
+  ctx.fillStyle = "#f7f7f4"; ctx.fillRect(0, 0, W, H);
+  ctx.textBaseline = "top";
+  const M = 90;
+
+  ctx.fillStyle = "#1c5c4b"; ctx.font = `800 20px ${FONT}`;
+  ctx.fillText("EMOTIONAL CMF DESIGN · FINAL DIRECTION", M, 68);
+  ctx.fillStyle = "#141d1a"; ctx.font = `600 56px ${FONT}`;
+  wrapText(ctx, state.keyword.trim(), M, 106, W - M * 2, 64, 2);
+  ctx.strokeStyle = "#dde4e0";
+  ctx.beginPath(); ctx.moveTo(M, 248); ctx.lineTo(W - M, 248); ctx.stroke();
+
+  const cols = 3, gap = 40;
+  const cw = (W - M * 2 - gap * (cols - 1)) / cols;
+  const imgH = Math.round(cw * 3 / 4);
+  const top = 300, rowH = imgH + 190;
+
+  for (let i = 0; i < steps.length; i++) {
+    const s = steps[i], r = state.results[s.key], o = r.options[r.selected];
+    const col = i % cols, row = Math.floor(i / cols);
+    const x = M + col * (cw + gap), y = top + row * (rowH + 30);
+
+    ctx.fillStyle = "#e9edeb"; ctx.fillRect(x, y, cw, imgH);
+    const data = o.hasImage ? await getImage(imgKey(s.key, r.selected)) : null;
+    if (data) { try { drawCover(ctx, await loadImageEl(data), x, y, cw, imgH); } catch {} }
+
+    let ty = y + imgH + 22;
+    ctx.fillStyle = "#1c5c4b"; ctx.font = `800 17px ${FONT}`;
+    ctx.fillText(`${pad2(i + 1)}  ${s.label} · ${s.en}`.toUpperCase(), x, ty);
+    ty += 28;
+    ctx.fillStyle = "#141d1a"; ctx.font = `700 29px ${FONT}`;
+    ty = wrapText(ctx, o.keyword, x, ty, cw, 36, 2) + 6;
+    ctx.fillStyle = "#3c4a44"; ctx.font = `400 19px ${FONT}`;
+    wrapText(ctx, o.description, x, ty, cw, 28, 3);
+  }
+
+  ctx.fillStyle = "#8b9791"; ctx.font = `400 17px ${FONT}`;
+  ctx.fillText(new Date().toLocaleDateString("ko-KR"), M, H - 60);
+  return c.toDataURL("image/png");
+}
+
+function downloadURL(url, name) {
+  const a = document.createElement("a");
+  a.href = url; a.download = name;
+  document.body.appendChild(a); a.click(); a.remove();
+}
+function downloadText(text, name, type) {
+  const url = URL.createObjectURL(new Blob([text], { type }));
+  downloadURL(url, name);
+  setTimeout(() => URL.revokeObjectURL(url), 2000);
+}
+
+/* ---------------------------------------------------------------- project file */
+async function exportProject() {
+  const withImages = confirm("이미지를 포함해 저장할까요?\n\n확인: 이미지 포함 (파일이 매우 커집니다)\n취소: 텍스트만 저장");
+  const payload = { app: "emotional-cmf-design", version: 5, state, images: null };
+  if (withImages) {
+    const images = {};
+    for (const s of steps) {
+      const r = state.results[s.key];
+      if (!r) continue;
+      for (let i = 0; i < r.options.length; i++) {
+        if (!r.options[i].hasImage) continue;
+        const k = imgKey(s.key, i);
+        const d = await getImage(k);
+        if (d) images[k] = d;
+      }
+    }
+    payload.images = images;
+  }
+  downloadText(JSON.stringify(payload), `CMF_${safeName(state.keyword)}.json`, "application/json");
+  setStatus(withImages ? "이미지를 포함해 프로젝트를 저장했습니다." : "텍스트만 저장했습니다. 이미지는 이 브라우저에 남아 있습니다.", "ok");
+}
+
+async function importProject(file) {
+  const text = await file.text();
+  let payload;
+  try { payload = JSON.parse(text); }
+  catch { setStatus("올바른 프로젝트 파일이 아닙니다.", "warn"); return; }
+
+  const next = sanitizeState(payload && payload.state ? payload.state : payload);
+  if (!Object.keys(next.results).length && !next.keyword) {
+    setStatus("불러올 내용이 없습니다. 이 앱에서 저장한 파일인지 확인해 주세요.", "warn");
+    return;
+  }
+  state = next;
+  memImg.clear();
+  await imgClear();
+
+  let restored = 0;
+  const images = payload && payload.images;
+  if (images && typeof images === "object") {
+    for (const [k, v] of Object.entries(images)) {
+      if (typeof v !== "string" || !v.startsWith("data:image/")) continue;
+      const [sk, idx] = k.split(":");
+      if (!stepKeys.includes(sk) || !/^\d+$/.test(idx || "")) continue;
+      await putImage(k, v);
+      restored++;
+    }
+  }
+  // 이미지가 없는 항목은 플래그를 내려서 카드가 잘못 비어 보이지 않게 함
+  for (const s of steps) {
+    const r = state.results[s.key];
+    if (!r) continue;
+    for (let i = 0; i < r.options.length; i++) {
+      if (r.options[i].hasImage && !memImg.has(imgKey(s.key, i))) r.options[i].hasImage = false;
+    }
+  }
+  els.keyword.value = state.keyword;
+  cardsSignature = "";
+  saveLocal();
+  render();
+  setStatus(restored ? `프로젝트를 불러왔습니다. 이미지 ${restored}장 복원.` : "프로젝트를 불러왔습니다. 이미지는 카드별로 다시 생성할 수 있습니다.", "ok");
+}
+
+/* ---------------------------------------------------------------- events */
+els.generate.addEventListener("click", generate);
+els.cancelBtn.addEventListener("click", () => { if (abortCtl) abortCtl.abort(); });
+
+els.steps.addEventListener("click", e => {
+  const btn = e.target.closest("[data-step]");
+  if (!btn || btn.disabled || busy) return;
+  state.stepIndex = Number(btn.dataset.step);
+  cardsSignature = "";
+  saveLocal();
+  render();
+});
+
+els.cards.addEventListener("click", e => {
+  const retry = e.target.closest("[data-retry]");
+  if (retry) { retryImage(Number(retry.dataset.retry)); return; }
+  const opt = e.target.closest("[data-option]");
+  if (!opt || busy) return;
+  const i = Number(opt.dataset.option);
+  const step = current();
+  const r = state.results[step.key];
+  if (!r) return;
+  r.selected = i;
+  r.sig = sigFor(state.stepIndex);
+  saveLocal();
+  syncSelection();
+  els.next.disabled = false;
+  els.next.textContent = state.stepIndex === steps.length - 1 ? "최종 보드 보기" : `선택하고 ${steps[state.stepIndex + 1].label}로`;
+  renderSteps();
+  const done = completedCount();
+  els.progressText.textContent = Math.round(done / steps.length * 100) + "%";
+  els.progressBar.style.width = Math.round(done / steps.length * 100) + "%";
+  els.progressSmall.textContent = `6단계 중 ${done}단계 확정`;
+  renderFinal();
+  setStatus(`${r.options[i].number} ${r.options[i].keyword} 방향을 선택했습니다.`, "ok");
+});
+
+els.next.addEventListener("click", () => {
+  if (busy || !canAdvance()) return;
+  if (state.stepIndex < steps.length - 1) {
+    state.stepIndex++;
+    cardsSignature = "";
+    saveLocal();
+    render();
+    setStatus(`${current().label} 단계입니다. 이전 선택을 반영해 방향을 생성하세요.`);
+    els.generate.focus();
+    window.scrollTo({ top: document.querySelector(".shell").offsetTop - 90, behavior: "smooth" });
+  } else if (allDone()) {
+    renderFinal();
+    els.final.scrollIntoView({ behavior: "smooth", block: "start" });
+  } else {
+    setStatus("아직 확정되지 않았거나 다시 생성이 필요한 단계가 있습니다.", "warn");
+  }
+});
+
+els.back.addEventListener("click", () => {
+  if (busy || state.stepIndex === 0) return;
+  state.stepIndex--;
+  cardsSignature = "";
+  saveLocal();
+  render();
+});
+
+els.download.addEventListener("click", async () => {
+  const step = current();
+  if (!state.results[step.key]) return;
+  setStatus("보드 이미지를 만들고 있습니다…");
+  try {
+    const url = await composeBoard(step);
+    downloadURL(url, `${pad2(state.stepIndex + 1)}_${safeName(step.label)}_${safeName(state.keyword)}.png`);
+    setStatus("보드 PNG를 저장했습니다.", "ok");
+  } catch (e) { setStatus("보드를 만들지 못했습니다: " + e.message, "warn"); }
+});
+
+els.finalPng.addEventListener("click", async () => {
+  setStatus("최종 컨셉 보드를 만들고 있습니다…");
+  try {
+    const url = await composeFinal();
+    downloadURL(url, `CMF_FINAL_${safeName(state.keyword)}.png`);
+    setStatus("최종 컨셉 보드를 저장했습니다.", "ok");
+  } catch (e) { setStatus("보드를 만들지 못했습니다: " + e.message, "warn"); }
+});
+
+els.finalJson.addEventListener("click", () => {
+  const lines = [
+    "EMOTIONAL CMF DESIGN — 최종 방향",
+    "감성 키워드: " + state.keyword.trim(),
+    "작성일: " + new Date().toLocaleString("ko-KR"),
+    ""
+  ];
+  steps.forEach((s, i) => {
+    const r = state.results[s.key], o = r.options[r.selected];
+    lines.push(`${pad2(i + 1)}. ${s.label} (${s.en})`);
+    lines.push(`    ${o.keyword}`);
+    lines.push(`    ${o.description}`);
+    if (o.cues.length) lines.push(`    단서: ${o.cues.join(" · ")}`);
+    lines.push("");
+  });
+  downloadText(lines.join("\n"), `CMF_${safeName(state.keyword)}_사양서.txt`, "text/plain;charset=utf-8");
+  setStatus("사양서 텍스트를 저장했습니다.", "ok");
+});
+
+els.keySave.addEventListener("click", () => {
+  const k = els.apiKey.value.trim();
+  if (!k) { setStatus("API 키를 입력해 주세요.", "warn"); return; }
+  try { localStorage.setItem(KEYSTORE, k); setStatus("API 키를 이 브라우저에 저장했습니다.", "ok"); }
+  catch { setStatus("키를 저장하지 못했습니다.", "warn"); }
+});
+
+els.keyClear.addEventListener("click", () => {
+  localStorage.removeItem(KEYSTORE);
+  els.apiKey.value = "";
+  setStatus("저장된 API 키를 삭제했습니다.", "ok");
+});
+
+els.keyTest.addEventListener("click", async () => {
+  if (!els.apiKey.value.trim()) { setStatus("API 키를 입력해 주세요.", "warn"); return; }
+  els.keyTest.disabled = true;
+  setStatus("텍스트 모델 연결을 확인하고 있습니다…");
+  try {
+    await request(TEXT_MODEL, {
+      contents: [{ role: "user", parts: [{ text: 'JSON만 출력: {"ok":true}' }] }],
+      generationConfig: { responseMimeType: "application/json" }
+    }, { timeout: 30000 });
+    setStatus(`텍스트 모델(${TEXT_MODEL}) 연결됨. 이미지 모델(${IMAGE_MODEL})은 첫 생성 때 확인됩니다.`, "ok");
+  } catch (e) {
+    setStatus("연결 실패: " + e.message, "warn");
+  } finally { els.keyTest.disabled = false; }
+});
+
+els.saveBtn.addEventListener("click", () => { if (!busy) exportProject(); });
+els.loadBtn.addEventListener("click", () => { if (!busy) els.file.click(); });
+els.file.addEventListener("change", async e => {
+  const f = e.target.files && e.target.files[0];
+  e.target.value = "";                       // 같은 파일 재선택 허용
+  if (f) await importProject(f);
+});
+
+els.resetBtn.addEventListener("click", async () => {
+  if (busy) return;
+  if (!confirm("현재 프로젝트를 초기화할까요? 생성한 이미지도 삭제됩니다. API 키는 유지됩니다.")) return;
+  genToken++;
+  state = blankState();
+  memImg.clear();
+  Object.keys(imgStatus).forEach(k => delete imgStatus[k]);
+  await imgClear();
+  els.keyword.value = "";
+  try { localStorage.removeItem(STORE); } catch {}
+  cardsSignature = "";
+  render();
+  setStatus("새 프로젝트를 시작할 수 있습니다.");
+});
+
+let kwTimer;
+els.keyword.addEventListener("input", () => {
+  state.keyword = els.keyword.value;
+  clearTimeout(kwTimer);
+  kwTimer = setTimeout(() => { saveLocal(); render(); }, 400);
+});
+
+/* ---------------------------------------------------------------- init */
+els.chips.innerHTML = examples.map((x, i) => `<button type="button" data-chip="${i}">${esc(x)}</button>`).join("");
+els.chips.addEventListener("click", e => {
+  const b = e.target.closest("[data-chip]");
+  if (!b || busy) return;
+  els.keyword.value = examples[Number(b.dataset.chip)];
+  state.keyword = els.keyword.value;
+  saveLocal();
+  render();
+});
+
+els.apiKey.value = localStorage.getItem(KEYSTORE) || "";
+try {
+  const saved = JSON.parse(localStorage.getItem(STORE) || "null");
+  if (saved) state = sanitizeState(saved);
+} catch { state = blankState(); }
+els.keyword.value = state.keyword;
+
+(async () => {
+  // 저장된 결과 중 이미지가 실제로 남아 있는지 확인
+  for (const s of steps) {
+    const r = state.results[s.key];
+    if (!r) continue;
+    for (let i = 0; i < r.options.length; i++) {
+      if (!r.options[i].hasImage) continue;
+      const d = await getImage(imgKey(s.key, i));
+      if (!d) r.options[i].hasImage = false;
+    }
+  }
+  cardsSignature = "";
+  render();
+})();
+
+render();
 })();
 </script>
 </body>
